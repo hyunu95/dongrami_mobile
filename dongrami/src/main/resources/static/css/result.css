@@ -1,0 +1,232 @@
+.logo-container {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    /* You can use fixed position if you want to fix it to a specific point */
+    position: absolute;
+    left: 90%;
+    transform: translateX(-50%);
+    bottom: -30px;
+  }
+  
+  .logo-text {
+    color: #450b78;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 40px; /* 고정된 텍스트 크기 */
+    transition: opacity 0.3s ease-in-out;
+    display: inline-block;
+    width: 300px;
+  }
+  
+  .hover-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 30%;
+    margin-left: 190px;
+    transform: translate(-75%, -30%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 900px) {
+	.hover-content {
+		margin-left: 200px;
+	}
+  }
+  
+  .logo-text:hover {
+    opacity: 0;
+  }
+  
+  .logo-text:hover + .hover-content {
+    opacity: 1;
+  }
+  
+  .hover-text {
+    color: #450b78;
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .logo-image {
+    width: 50px;
+    height: 50px;
+    background: url("/images/logo/mainlogo.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: spin 2s infinite linear;
+    margin: 0;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .logo {
+        left: 205px;
+        top: 20px;
+    }
+
+    .hover-content {
+        top: 20px;
+    }
+    }
+
+
+    .gray-line {
+        border-top: 1px solid #ccc; /* Gray border style */
+        margin-top: 20px; /* Adjust margin top as needed */
+        width: 100%; /* Full width */
+        margin-bottom: 50px;
+    }
+    
+  
+  .footer-text {
+	color: #450b78;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 40px; /* 고정된 텍스트 크기 */
+    display: inline-block;
+    width: 300px;
+  }
+
+  /* 기본 스타일 (데스크톱) */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-area {
+  background-color: #F4FEFF;
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-icon img {
+  width: 300px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.say-something-aera {
+  background-color: white;
+  padding: 90px 0; /* pt-90 pb-90 대체 */
+  width: 100%;
+}
+
+.card-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#card1 {
+  width: 150px;
+  height: 250px;
+  border: 3px dotted #928f8fbd;
+  border-radius: 20px;
+}
+
+.showResult {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -170px;
+  background-color: #906DAC; /* footer의 save 버튼과 같은 색상 */
+  width: 150px;
+  height: 45px;
+  border: none;
+  border-radius: 4px; /* footer 버튼과 같은 border-radius */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.showResult a {
+  color: white;
+  text-decoration-line: none;
+}
+
+.showResult a:hover {
+  color: white;
+  text-decoration-line: none;
+}
+
+/* 모바일 스타일 (iPhone 12 Pro) */
+@media screen and (max-width: 390px) {
+  body, html {
+    width: 390px;
+    height: 844px;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .service-area {
+    padding: 20px 0;
+  }
+
+  .service-icon img {
+    width: 180px;
+    margin-bottom: 20px;
+  }
+
+  .center-card {
+    width: 80px;
+    height: 130px;
+    margin: 20px auto;
+  }
+
+  .say-something-aera {
+      padding: 40px 0; /* 모바일에서 패딩 줄임 */
+  }
+  
+  #card1 {
+      width: 100px;
+      height: 170px;
+      border: 2px dotted #928f8fbd;
+  }
+}
+
+.service-area span {
+  display: flex;
+  justify-content: center;
+  margin-top:-70px;
+}
+
+.service-area span p {
+  color: #450b78;
+  font-size: 20px;
+  font-weight: bold;
+
+}

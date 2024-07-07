@@ -1,0 +1,393 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Dongrami Tarot</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+            <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+            <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+            <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+            <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+            <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+            <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+            <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+            <link rel="stylesheet" th:href="@{/css/slick.css}">
+            <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+            <link rel="stylesheet" th:href="@{/css/style.css}">
+            <link rel="stylesheet" th:href="@{/css/index.css}">
+            <link rel="stylesheet" th:href="@{/css/nav.css}">
+			
+   </head>
+
+   <body>
+
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent ">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-2">
+                            <div class="logo">
+                                <a href="#" class="logo-text">CIRCLE TAROT</a>
+                                <div class="hover-content">
+                                    <span class="hover-text left-text">동그</span>
+                                    <div class="logo-image"></div>
+                                    <span class="hover-text right-text">라미</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">    
+                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
+                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
+                                        <li><a th:href="@{/review}">리뷰</a></li>
+										<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+
+    <main>
+
+        <!-- Slider Area Start-->
+        <div class="slider-area" style="background-color: #F4FEFF;">
+            <div class="slider-active">
+                <div class="single-slider slider-height slider-padding sky-blue d-flex align-items-center">
+                    <div class="container">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-6 col-md-9 ">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInUp" data-delay=".4s">Dongrami Tarot</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">동그라미<br>타로</h1>
+                                    <p data-animation="fadeInUp" data-delay=".8s">당신의 운명을 밝혀줄💡 타로 카드와 함께,<br> 당신의 여정을 시작하세요.</p>
+                                    <!-- Slider btn -->
+                                   <div class="slider-btns">
+                                        <!-- Hero-btn -->
+                                        <a data-animation="fadeInLeft" data-delay="1.0s" href="industries.html" class="btn radius-btn">Download</a>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight" data-delay="1s">
+                                    <img src="/images/hero/hero_right.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- Slider Area End -->
+        <!-- Best Features Start -->
+        <section class="best-features-area section-padd4">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-xl-8 col-lg-10">
+                        <!-- Section Title -->
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10">
+                                <div class="section-tittle">
+                                    <h2>주제별 인기 타로</h2>
+                                    <h3>동그라미 타로에서<br>주제별로 가장 인기있는<br class="break-mobile"> 타로들</h3>
+                                </div>
+                            </div>
+                            <button class="collect-button" onclick="location.href='/tarotlist'">모두 보기 ></button>
+                        </div>
+                        <!-- Section Caption -->
+                        <div class="row">
+                            <!-- First Row: Fixed Images -->
+                            <div class="col-xl-4 col-lg-4 col-md-4 text-right">
+                                <div class="single-features mb-70">
+                                    <div class="features-caption">
+                                        <a href="#">
+                                            <img src="/images/logo/logo-1.png" alt="">
+                                        </a>
+                                        <div class="topic-name">
+                                            <h2>그 사람과의 연애는?</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 text-right">
+                                <div class="single-features mb-70">
+                                    <div class="features-caption">
+                                        <a href="#">
+                                            <img src="/images/logo/logo-2.png" alt="">
+                                        </a>
+                                        <div class="topic-name">
+                                            <h2>텅장이 통장이 될때?</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 text-right">
+                                <div class="single-features mb-70">
+                                    <div class="features-caption">
+                                        <a href="#">
+                                            <img src="/images/logo/logo-3.png" alt="">
+                                        </a>
+                                        <div class="topic-name">
+                                            <h2>나에게 맞는 직업은?</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Second Row: Center-aligned Images -->
+                        <div class="row justify-content-center">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="single-features mb-70">
+                                    <div class="features-caption text-center">
+                                        <a href="#">
+                                            <img src="/images/logo/logo-5.png" alt="">
+                                        </a>
+                                        <div class="topic-name">
+                                            <h2>합격의 기운은??</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="single-features mb-70">
+                                    <div class="features-caption text-center">
+                                        <a href="#">
+                                            <img src="/images/logo/logo-5.png" alt="">
+                                        </a>
+                                        <div class="topic-name">
+                                            <h2>남이 보는 내 모습은?</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Shape -->
+            <div class="features-shpae d-none d-lg-block">
+                <img src="/images/shape/Tarot_hand.png" alt="">
+            </div>
+        </section>
+        <!-- Best Features End -->
+        <!-- Services Area Start -->
+        <section class="service-area sky-blue section-padding2">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-tittle text-center">
+                            <h2>실시간 인기🔥 검색어</h2>
+                            <h3>지금 실시간으로 인기있는<br class="break-mobile"> 타로 한눈에 보기!</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section caption -->
+                <div class="row justify-content-center"> <!-- Changed justify-content-center for centering flex-container -->
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="flex-container text-center"> <!-- Added text-center class -->
+                            <div class="left-section">
+                                <svg class="tarotRankingBubbles" viewBox="0 0 500 350" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="title desc">
+                                    <!-- 1순위 -->
+                                    <g class="node" transform="translate(130, 50)">
+                                        <svg class="item" role="list" aria-label="1순위" width="200" height="200" data-subcategory-id="?">
+                                            <g class="ranking1">
+                                                <circle r="80" cx="110" cy="100" fill="#FF6347"></circle>
+                                                <g class="t-group">
+                                                    <text class="bubbleText" fill="#ffffff" font-size="24px" x="90" y="110" text-anchor="middle"></text>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </g>
+                                    <!-- 2순위 -->
+                                    <g class="node" transform="translate(280, 0)">
+                                        <svg class="item" role="list" aria-label="2순위" width="200" height="200" data-subcategory-id="?">
+                                            <g class="ranking2">
+                                                <circle r="75" cx="100" cy="105" fill="#4682B4"></circle>
+                                                <g class="t-group">
+                                                    <text class="bubbleText" fill="#ffffff" font-size="20px" x="100" y="110" text-anchor="middle"></text>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </g>
+                                    <!-- 3순위 -->
+                                    <g class="node" transform="translate(-20, 0)">
+                                        <svg class="item" role="list" aria-label="3순위" width="200" height="200" data-subcategory-id="?">
+                                            <g class="ranking3">
+                                                <circle r="60" cx="120" cy="100" fill="#008080"></circle>
+                                                <g class="t-group">
+                                                    <text class="bubbleText" fill="#ffffff" font-size="18px" x="110" y="105" text-anchor="middle"></text>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </g>
+                                    <!-- 4순위 -->
+                                    <g class="node" transform="translate(80, 180)">
+                                        <svg class="item" role="list" aria-label="4순위" width="200" height="200" data-subcategory-id="?">
+                                            <g class="ranking4">
+                                                <circle r="55" cx="100" cy="80" fill="#FFD700"></circle>
+                                                <g class="t-group">
+                                                    <text class="bubbleText" fill="#ffffff" font-size="15px" x="100" y="108" text-anchor="middle"></text>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </g>
+                                    <!-- 5순위 -->
+                                    <g class="node" transform="translate(300, 150)">
+                                        <svg class="item" role="list" aria-label="5순위" width="200" height="200" data-subcategory-id="?">
+                                            <g class="ranking5">
+                                                <circle r="45" cx="100" cy="100" fill="#32CD32"></circle>
+                                                <g class="t-group">
+                                                    <text class="bubbleText" fill="#ffffff" font-size="13px" x="100" y="108" text-anchor="middle"></text>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Area End -->
+        <!-- Applic App Start -->
+        <div class="applic-apps section-padding2">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- slider Heading -->
+                    <div class="col-xl-4 col-lg-4 col-md-8">
+                        <div class="single-cases-info mb-30">
+                            <h3>재미로 보는<br> 다양한 논쟁 🔥</h3>
+                            <p>남·여 간에 다양한 논쟁거리에 투표를 하고<br class="break-mobile"> 댓글로 생각을 적어주세요 😁</p>
+                        </div>
+                    </div>
+                    <!-- OwL -->
+                    <div class="col-xl-8 col-lg-8 col-md-col-md-7">
+                        <div class="app-active owl-carousel"> 
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/alchole.png" alt="">
+                            </div>
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/bluetooth.png" alt="">
+                            </div>
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/duet.png" alt="">
+                            </div>
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/event.png" alt="">
+                            </div>
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/rice.png" alt="">
+                            </div>
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/taxi.png" alt="">
+                            </div>
+                            <div class="single-cases-img">
+                                <img src="/images/mainvoteimg/travel.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Applic App End -->
+
+<footer>
+    <!-- Footer Start-->
+    <div class="footer-main">
+        <div class="footer-area footer-padding">
+            <hr class="gray-line">
+            <div class="container">               
+                <div class="row justify-content-between">
+                    <div class="col-lg-3 col-md-4 col-sm-8">
+                        <div class="single-footer-caption mb-30">
+                            <!-- logo -->
+                            <div class="footer-logo">
+                                <div class="logo">
+                                    <a href="#" class="footer-text">CIRCLE TAROT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Copy-Right -->
+                <div class="row align-items-center">
+                    <div class="col-xl-12">
+                        <div class="footer-copy-right">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </div>
+</footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script th:src="@{/js/owl.carousel.min.js}"></script>
+        <script th:src="@{/js/slick.min.js}"></script>
+        <!-- Date Picker -->
+        <script th:src="@{/js/gijgo.min.js}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script th:src="@{/js/wow.min.js}"></script>
+		<script th:src="@{/js/animated.headline.js}"></script>
+        <script th:src="@{/js/jquery.magnific-popup.js}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+        <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+		<script th:src="@{/js/jquery.sticky.js}"></script>
+        
+        <!-- contact js -->
+        <script th:src="@{/js/contact.js}"></script>
+        <script th:src="@{/js/jquery.form.js}"></script>
+        <script th:src="@{/js/jquery.validate.min.js}"></script>
+        <script th:src="@{/js/mail-script.js}"></script>
+        <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script th:src="@{/js/plugins.js}"></script>
+        <script th:src="@{/js/main.js}"></script>
+        
+    </body>
+</html>

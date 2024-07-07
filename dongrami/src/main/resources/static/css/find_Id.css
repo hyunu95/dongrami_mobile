@@ -1,0 +1,308 @@
+/* html, body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    height:100%;
+    display :flex;
+    flex-direction: column;
+    
+  }
+   */
+
+body{
+    text-align: left;
+  }
+
+.header-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: all 0.3s ease-out 0s;
+    background: #fff;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-size: 24px;
+    color: #450b78;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+/* 메인 콘텐츠 */
+.main-content1 {
+    margin-top: 70px;
+    flex-grow: 1;
+    display: flow-root;
+    flex-direction: column; 
+    margin-bottom: 0;
+    color: #450b78;
+    font-weight: 700;
+    
+}
+
+.container1 {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* margin-left: 5px; */
+    margin: 0 auto; /* 좌우 중앙 정렬을 위해 추가 */
+
+    
+}
+
+.login-box1 {
+    background-color: #ffffff;
+    border: 1px solid #8f1bdc;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-bottom: 30px;;
+    padding: 20px;
+    box-shadow:  2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+}
+
+
+
+#findForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 폼을 수직 중앙 정렬합니다. */
+    /* width: 300px; */
+    gap: 8px;
+    /* margin-right: 5px; */
+    padding: 0px;
+    /* border: 1px solid #ccc;
+    border-radius: 5px; */
+    display: flex;
+    align-items: center;
+    /* gap: 20px; */
+    flex-direction: column;
+    margin-top: 20px;
+    color: #450b78;
+    font-weight: 550;
+    font-size: 13px;
+}
+
+.form-group {
+    width: 100%; /* 전체 폭을 차지하도록 설정 */
+    margin-bottom: 10px; /* 아래 여백 추가 */
+}
+
+.form-group > input::placeholder{
+    color: #D2D2D2;
+}
+
+
+#name {
+    margin-top: -40px;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 300px;
+    height: 43px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* background-color: #F8F8F8; */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: #3d85c6;
+}
+
+#id-find {
+    padding: 13px 20px;
+    background-color: #7150bd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%; /* 전체 폭을 차지하도록 설정 */
+    font-size: 14px;
+    margin-top: 10px;
+    height:43px;
+    color: white;
+    font-weight: 600px;
+}
+
+#id-find:hover {
+    background-color: #775E9D
+}
+
+.striped {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    width: 100%; /* 전체 폭을 차지하도록 설정 */
+    text-align: center;
+}
+
+.striped-line {
+    flex-grow: 1;
+    height: 1.8px;
+    background-color: #ccc;
+}
+
+.striped-text {
+    margin: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.separator {
+    color: #ccc;
+}
+
+
+
+.login input[type="submit"] {
+    /* padding: 10px 20px; */
+    background-color: transparent;
+    color: #534989;
+    border: none; /* 변경 */
+    border-radius: 0; /* 변경 */
+    cursor: pointer;
+    /* width: 46%; */
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 10px;
+    
+    
+}
+
+.login input[type="submit"]:hover {
+    color: #775E9D;
+    
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: whitesmoke;
+    color: #9270B1;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    height: 220px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    color: #9270B1;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.modal-content p {
+    margin-bottom: 10px; /* p 요소 간격을 줄입니다. */
+}
+
+.modal-content #loginButton {
+    margin-top: 50px; /* 버튼을 아래로 살짝 내립니다. */
+    padding: 10px 20px;
+    background-color: #9270B1;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.modal-content #loginButton:hover {
+    background-color: #775E9D
+}
+
+
+
+.footer-padding {
+    padding-top: 95px;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+    .main-content1 {
+        margin-top: 40px;
+        flex-grow: 1;
+        display: flow-root;
+        flex-direction: column; 
+        margin-bottom: 0;
+        color: #450b78;
+        font-weight: 700;
+        /* margin-bottom: 100px; */
+    }
+    
+
+       
+/*모바일에서는 border없애기*/
+.login-box1 {
+    border: none;
+    box-shadow: none;
+}
+
+
+/*헤더 부분*/
+/* .header-area .slicknav_btn {
+top: -49px;
+} */
+
+/* 
+.slicknav_btn {
+right: -13px;
+} */
+
+/* .hover-content {
+left: 27%;
+} */
+
+/* .container1{
+    margin: -51px auto;
+} */
+   }

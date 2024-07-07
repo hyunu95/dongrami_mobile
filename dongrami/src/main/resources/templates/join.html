@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>App Landing Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/join.css}">
+</head>
+
+<body>
+	<header>
+	    <!-- Header Start -->
+	   <div class="header-area header-transparrent ">
+	        <div class="main-header header-sticky">
+	            <div class="container">
+	                <div class="row align-items-center">
+	                    <!-- Logo -->
+	                    <div class="col-xl-2 col-lg-2 col-md-2">
+	                        <div class="logo">
+	                            <a href="#" class="logo-text">CIRCLE TAROT</a>
+	                            <div class="hover-content">
+	                                <span class="hover-text left-text">동그</span>
+	                                <div class="logo-image"></div>
+	                                <span class="hover-text right-text">라미</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-xl-10 col-lg-10 col-md-10">
+	                        <!-- Main-menu -->
+	                        <div class="main-menu f-right d-none d-lg-block">
+	                            <nav>
+	                                <ul id="navigation">    
+	                                    <li class="active"><a th:href="@{/index}"> Home</a></li>
+	                                    <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                    <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                    <li><a th:href="@{/review}">리뷰</a></li>
+										<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
+	                            </nav>
+	                        </div>
+	                    </div>
+	                    <!-- Mobile Menu -->
+	                    <div class="col-12">
+	                        <div class="mobile_menu d-block d-lg-none"></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	   </div>
+	    <!-- Header End -->
+	</header>
+
+    <!-- 메인 부분 -->
+    <div class="main-content1">
+        <div class="container1">
+            <div class="login-box1">
+                <div class="logo1">
+                    <h2>회원가입</h2>
+                </div>
+                <form id="joinForm" th:action="@{/join}" method="post">
+                    <div class="form_item">
+                        <h6 id="info">※ 필수 입력사항 : 이메일, 비밀번호, 이름</h6>
+                        <h6 id="password_info">※ 비밀번호 : 8~16자 영문 대 소문자, 숫자, 특수문자 사용</h6>
+                        <div class="input_with_button">
+                            <input type="text" name="email" placeholder="이메일"/>
+                        </div>
+                        <h5 id="valid_email" class="error"></h5>
+                    </div>
+
+                    <div class="form_item">
+                        <div class="input_with_button">
+                            <input type="password" name="password" placeholder="비밀번호"/>
+                        </div>
+                        <h5 id="valid_password" class="error"></h5>
+                    </div>
+
+                    <div class="form_item">
+                        <div class="input_with_button">
+                            <input type="password" name="password2" placeholder="비밀번호 확인"/>
+                        </div>
+                        <h5 id="valid_password2" class="error"></h5>
+                    </div>
+
+                    <div class="form_item">
+                        <div class="input_with_button" id="gender">
+                            <input type="text" name="nickname" placeholder="이름">
+                            <input type="button" value="남자" data-gender="M" onclick="selectGender(this)">
+                            <input type="button" value="여자" data-gender="F" onclick="selectGender(this)">
+                        </div>
+                        <input type="hidden" name="gender" id="genderInput">
+                        <h5 id="valid_nickname" class="error"></h5>
+                    </div>
+
+                    <div class="info" id="info_birth">
+                        <select class="box" id="birth-year" name="birthYear">
+                            <option value="" disabled selected>출생 연도</option>
+                        </select>
+                        <select class="box" id="birth-month" name="birthMonth">
+                            <option value="" disabled selected>월</option>
+                        </select>
+                        <select class="box" id="birth-day" name="birthDay">
+                            <option value="" disabled selected>일</option>
+                        </select>
+                        <h5 id="valid_birthday" class="error"></h5>
+                    </div>
+
+                    <div class="form_item" id="phone">
+                        <input type="text" class="text" name="phoneNumber" placeholder="휴대전화번호">
+                    </div>
+
+                    <div class="form_item">
+                        <button type="submit" class="submit_button">가입하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="customModal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>회원가입이 완료되었습니다!</p>
+            <button id="modalLoginButton">로그인하기</button>
+        </div>
+    </div>
+
+	
+	
+	
+    <!-- 푸터 -->     
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <hr class="gray-line">
+                <div class="container">  
+                    <div class="row justify-content-between">
+                        <div class="col-lg-3 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <div class="logo">
+                                        <a href="#" class="logo-text">CIRCLE TAROT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Copy-Right -->
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="footer-copy-right">
+                                <p>
+                                    Copyright &copy;<script th:inline="javascript">document.write(new Date().getFullYear());</script>
+                                    All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End-->
+        </div>
+    </footer>
+	
+
+    <!-- JS here -->
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/slick.min.js}"></script>
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/animated.headline.js}"></script>
+    <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+    <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.js}"></script>
+    <script th:src="@{/js/contact.js}"></script>
+    <script th:src="@{/js/jquery.form.js}"></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/mail-script.js}"></script>
+    <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+	
+	
+	
+
+	<script th:inline="javascript">
+	   
+	   function selectGender(button) {
+	       document.querySelectorAll('.form_item input[type="button"]').forEach(btn => btn.classList.remove('active'));
+	       button.classList.add('active');
+	       document.getElementById('genderInput').value = button.getAttribute('data-gender');
+	   }
+
+	   function populateBirthOptions() {
+	       const currentYear = new Date().getFullYear();
+	       
+	       // 년도 옵션 생성
+	       const birthYearEl = document.querySelector('#birth-year');
+	       birthYearEl.innerHTML = '<option value="" disabled selected>출생 연도</option>';
+	       for (let i = currentYear; i >= 1940; i--) {
+	           const option = document.createElement('option');
+	           option.value = i;
+	           option.textContent = i;
+	           birthYearEl.appendChild(option);
+	       }
+	       
+	       // 월 옵션 생성
+	       const birthMonthEl = document.querySelector('#birth-month');
+	       birthMonthEl.innerHTML = '<option value="" disabled selected>월</option>';
+	       for (let i = 1; i <= 12; i++) {
+	           const option = document.createElement('option');
+	           option.value = i;
+	           option.textContent = i;
+	           birthMonthEl.appendChild(option);
+	       }
+	       
+	       // 일 옵션 생성
+	       const birthDayEl = document.querySelector('#birth-day');
+	       birthDayEl.innerHTML = '<option value="" disabled selected>일</option>';
+	       for (let i = 1; i <= 31; i++) {
+	           const option = document.createElement('option');
+	           option.value = i;
+	           option.textContent = i;
+	           birthDayEl.appendChild(option);
+	       }
+	   }
+
+	   $(document).ready(function() {
+	       populateBirthOptions();
+
+	       var modal = document.getElementById('customModal');
+	       var closeButton = modal.querySelector('.close-button');
+	       var loginButton = document.getElementById('modalLoginButton');
+	       var modalMessage = document.getElementById('modalMessage');
+
+	       $('#joinForm').submit(function(e) {
+	           e.preventDefault();
+	           let isValid = true;
+
+	           // 이메일 유효성 검사
+	           const emailRegex = /^(?:\w+\.?)*\w+@(?:\w+\.)+\w+$/;
+	           if (!emailRegex.test($('#email').val())) {
+	               $('#valid_email').text('이메일 형식이 올바르지 않습니다.').css('color','red');
+	               isValid = false;
+	           } else {
+	               $('#valid_email').text('');
+	           }
+
+	           // 비밀번호 유효성 검사
+	           const passwordRegex = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@!&%^*$])(?=\S+$).{8,16}$/;
+	           if (!passwordRegex.test($('#password').val())) {
+	               $('#valid_password').text('비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자(@,!,&,%,^,*,$)를 사용하세요.');
+	               isValid = false;
+	           } else {
+	               $('#valid_password').text('');
+	           }
+
+	           // 비밀번호 확인
+	           if ($('#password').val() !== $('#password2').val()) {
+	               $('#valid_password2').text('비밀번호가 일치하지 않습니다.');
+	               isValid = false;
+	           } else {
+	               $('#valid_password2').text('');
+	           }
+
+	           // 닉네임 검사
+	           if ($('#nickname').val().trim() === '') {
+	               $('#valid_nickname').text('이름은 필수 입력입니다.');
+	               isValid = false;
+	           } else {
+	               $('#valid_nickname').text('');
+	           }
+
+	           // 생년월일 검사
+	           let birthYear = $('#birth-year').val();
+	           let birthMonth = $('#birth-month').val();
+	           let birthDay = $('#birth-day').val();
+	           
+	           if (birthYear === '') {
+	               $('#valid_birthday').text('출생년도, 월, 일을 모두 선택해주세요.');
+	               isValid = false;
+	           } else {
+	               $('#valid_birthday').text('');
+	           }
+
+	         //모달
+	         if (isValid) {
+	                     var formData = new FormData(this);
+	                     $.ajax({
+	                         url: $(this).attr('action'),
+	                         type: 'POST',
+	                         data: formData,
+	                         processData: false,
+	                         contentType: false,
+	                         success: function(response) {
+	                             modalMessage.textContent = response.message;
+	                             if(response.success) {
+	                                 loginButton.style.display = 'inline-block';
+	                             } else {
+	                                 loginButton.style.display = 'inline-block';
+	                             }
+	                             modal.style.display = 'flex';
+	                         },
+	                         error: function() {
+	                             modalMessage.textContent = '서버 오류가 발생했습니다.';
+	                             loginButton.style.display = 'inline-block';
+	                             modal.style.display = 'flex';
+	                         }
+	                     });
+	                 }
+	             });
+	       closeButton.onclick = function() {
+	           modal.style.display = 'none';
+	       }
+
+	       window.onclick = function(event) {
+	           if (event.target == modal) {
+	               modal.style.display = 'none';
+	           }
+	       }
+
+	       loginButton.onclick = function() {
+	           window.location.href = '/login';
+	       }
+	   });
+	</script>
+
+</body>
+</html>

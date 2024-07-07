@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>Circle Tarot</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!--<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">-->
+    <!-- Place favicon.ico in the root directory -->
+    
+  <!-- CSS here -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+  <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+  <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+  <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+  <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+  <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+  <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+  <link rel="stylesheet" th:href="@{/css/slick.css}">
+  <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/responsive.css}">
+  <link rel="stylesheet" media="screen" th:href="@{/css/mainvote.css}">
+  <link rel="stylesheet" media="screen" th:href="@{/css/nav.css}">
+  
+</head>                  
+
+<body>
+	<header>
+	    <!-- Header Start -->
+	   <div class="header-area header-transparrent ">
+	        <div class="main-header header-sticky">
+	            <div class="container">
+	                <div class="row align-items-center">
+	                    <!-- Logo -->
+	                    <div class="col-xl-2 col-lg-2 col-md-2">
+	                        <div class="logo">
+	                            <a href="#" class="logo-text">CIRCLE TAROT</a>
+	                            <div class="hover-content">
+	                                <span class="hover-text left-text">동그</span>
+	                                <div class="logo-image"></div>
+	                                <span class="hover-text right-text">라미</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-xl-10 col-lg-10 col-md-10">
+	                        <!-- Main-menu -->
+	                        <div class="main-menu f-right d-none d-lg-block">
+	                            <nav>
+	                                <ul id="navigation">    
+	                                    <li class="active"><a th:href="@{/index}"> Home</a></li>
+	                                    <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                    <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                    <li><a th:href="@{/review}">리뷰</a></li>
+										<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
+	                            </nav>
+	                        </div>
+	                    </div>
+	                    <!-- Mobile Menu -->
+	                    <div class="col-12">
+	                        <div class="mobile_menu d-block d-lg-none"></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	   </div>
+	    <!-- Header End -->
+	</header>
+
+	
+	
+	
+	
+	
+		<!-- Slider Area Start-->
+		<div class="services-area">
+		    <div class="container">
+		        <!-- Section-tittle -->
+		        <div class="row d-flex justify-content-center">
+		            <div class="col-lg-8">
+		                <div class="section-tittle text-center mb-80">
+		                    <h2>논쟁 투표​</h2>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- Slider Area End-->
+   <!--================Blog Area =================-->
+   <section class="blog_area single-post-area">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 posts-list">
+               <div class="single-post">
+               
+						<div id="vote-list" class="vote-list"></div>
+						<div id="comment-section" class="comment-section">	</div>									
+									<div class="comment-container">
+									 <h3>댓글</h2>
+										<form id="replyForm">
+												<span id="name1"th:text="${session.loggedInUser.nickname}">사용자 이름</span>
+										        <input type="text" id="content" name="content" required placeholder="댓글을 입력하세요"><br><br>
+										        <input type="hidden" id="level" name="level" value="1"><br><br>
+										        <input type="hidden" id="voteId" name="voteId" value=""><br><br> <!-- hidden input -->
+										        <input type="hidden" id="userId" name="userId" th:value="${session.loggedInUser.userId}"><br><br> <!-- hidden input -->
+										        <input type="hidden" id="userNicknameInput" name="userNickname" th:value="${session.loggedInUser.nickname}"><br><br>
+										        <button type="submit" id="submitComment">댓글 작성</button>
+												
+										    </form>
+											
+            					</div>
+								<div id="pagination"></div>
+						</div>
+				</div>	
+         	</div>
+      	</div>
+   </section>
+	
+   
+<!-- JS here -->
+	
+<!-- All JS Custom Plugins Link Here here -->
+        <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+		<script th:src="@{/js/mainvote.js}"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+        <script th:src="@{/js/popper.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script th:src="@{/js/owl.carousel.min.js}"></script>
+        <script th:src="@{/js/slick.min.js}"></script>
+
+		<!-- One Page, Animated-HeadLin -->
+        <script th:src="@{/js/wow.min.js}"></script>
+		<script th:src="@{/js/animated.headline.js}"></script>
+		
+		<!-- Scrollup, nice-select, sticky -->
+        <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+        <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+		<script th:src="@{/js/jquery.sticky.js}"></script>
+        <script th:src="@{/js/jquery.magnific-popup.js}"></script>
+
+        <!-- contact js -->
+        <script th:src="@{/js/contact.js}"></script>
+        <script th:src="@{/js/jquery.form.js}"></script>
+        <script th:src="@{/js/jquery.validate.min.js}"></script>
+        <script th:src="@{/js/mail-script.js}"></script>
+        <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script th:src="@{/js/plugins.js}"></script>
+        <script th:src="@{/js/main.js}"></script>
+        
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>App Landing Template </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="/css/bootstrap.min2.css">
+            <link rel="stylesheet" href="/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="/css/flaticon.css">
+            <link rel="stylesheet" href="/css/slicknav.css">
+            <link rel="stylesheet" href="/css/animate.min.css">
+            <link rel="stylesheet" href="/css/magnific-popup.css">
+            <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+            <!--<link rel="stylesheet" href="/css/themify-icons.css">-->
+            <link rel="stylesheet" href="/css/slick.css">
+            <link rel="stylesheet" href="/css/nice-select.css">
+            <link rel="stylesheet" href="/css/style2.css">
+            <link rel="stylesheet" href="/css/tarot.css">
+   </head>
+
+   <body>
+       
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img th:src="@{/images/vote_images/mainlogo.png}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+	<header>
+	        <!-- Header Start -->
+	       <div class="header-area header-transparrent ">
+	            <div class="main-header header-sticky">
+	                <div class="container">
+	                    <div class="row align-items-center">
+	                        <!-- Logo -->
+	                        <div class="col-xl-2 col-lg-2 col-md-2">
+	                            <div class="logo">
+	                                <a href="#" class="logo-text">CIRCLE TAROT</a>
+	                                <div class="hover-content">
+	                                    <span class="hover-text left-text">동그</span>
+	                                    <div class="logo-image"></div>
+	                                    <span class="hover-text right-text">라미</span>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="col-xl-10 col-lg-10 col-md-10">
+	                            <!-- Main-menu -->
+	                            <div class="main-menu f-right d-none d-lg-block">
+	                                <nav>
+	                                    <ul id="navigation">    
+	                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
+	                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                        <li><a th:href="@{/review}">리뷰</a></li>
+											<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
+	                                </nav>
+	                            </div>
+	                        </div>
+	                        <!-- Mobile Menu -->
+	                        <div class="col-12">
+	                            <div class="mobile_menu d-block d-lg-none"></div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	       </div>
+	        <!-- Header End -->
+	    </header>
+    <main>
+
+        <!-- Best Features End -->
+        <!-- Services Area Start -->
+        <section class="service-area sky-blue section-padding2">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <span><p id="subcategory_name" th:text="${subcategoryName}">짝사랑</p></span>
+                        <div class="speech-bubble">
+                            <span><p id="tarot_info" th:text="${tarotInfo}">신중하게 카드 1장을 선택해 봐!</p></span>
+                        </div>
+                        <div class="services-caption active text-center mb-30">
+                            <div class="service-icon">
+                                <img src="/images/vote_images/basic_tarot.png" alt="" id="basic-tarot-image">
+                            </div> 
+                            <div id="owl-card" class="center-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Customer End -->
+       
+        <!-- Say Something Start -->
+        <div class="say-something-aera pt-90 pb-90 fix">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="card-select">
+                        <div id="card1"></div>
+                    </div>
+                    <div class="showResult" id="showResultButton">
+						<a th:href="@{/result}">결과 보기</a>	
+                        <!--<a th:href="@{/result_one(subcategory_id=${subcategoryId})}">결과 보기</a>-->
+                   </div>
+                </div>
+            </div>
+        </div>
+        <!-- Say Something End -->
+     
+    </main>
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <hr class="gray-line">
+                <div class="container">
+                    
+                    <div class="row justify-content-between">
+                        <div class="col-lg-3 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <div class="logo">
+                                        <a href="#" class="logo-text">CIRCLE TAROT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Copy-Right -->
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="footer-copy-right">
+                                <p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                    All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End-->
+        </div>
+    </footer>
+   
+	<!-- JS here -->
+	<!-- All JS Custom Plugins Link Here here -->
+	        <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+			
+			<!-- Jquery, Popper, Bootstrap -->
+			<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+	        <script th:src="@{/js/popper.min.js}"></script>
+	        <script th:src="@{/js/bootstrap.min.js}"></script>
+		    <!-- Jquery Mobile Menu -->
+	        <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+
+			<!-- Jquery Slick , Owl-Carousel Plugins -->
+	        <script th:src="@{/js/owl.carousel.min.js}"></script>
+	        <script th:src="@{/js/slick.min.js}"></script>
+	        <!-- Date Picker -->
+	        <script th:src="@{/js/gijgo.min.js}"></script>
+			<!-- One Page, Animated-HeadLin -->
+	        <script th:src="@{/js/wow.min.js}"></script>
+			<script th:src="@{/js/animated.headline.js}"></script>
+	        <script th:src="@{/js/jquery.magnific-popup.js}"></script>
+
+			<!-- Scrollup, nice-select, sticky -->
+	        <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+	        <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+			<script th:src="@{/js/jquery.sticky.js}"></script>
+	        
+	        <!-- contact js -->
+	        <script th:src="@{/js/contact.js}"></script>
+	        <script th:src="@{/js/jquery.form.js}"></script>
+	        <script th:src="@{/js/jquery.validate.min.js}"></script>
+	        <script th:src="@{/js/mail-script.js}"></script>
+	        <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	        
+			<!-- Jquery Plugins, main Jquery -->	
+	        <script th:src="@{/js/plugins.js}"></script>
+	        <script th:src="@{/js/main.js}"></script>
+
+    <!-- Tarot js-->
+    <script th:src="@{/js/tarot_oneSelect.js}"></script>
+    </body>
+</html>

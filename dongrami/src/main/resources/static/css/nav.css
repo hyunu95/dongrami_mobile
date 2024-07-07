@@ -1,0 +1,104 @@
+.logo-container {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    /* You can use fixed position if you want to fix it to a specific point */
+    position: absolute;
+    left: 90%;
+    transform: translateX(-50%);
+    bottom: -30px;
+  }
+  
+  .logo-text {
+    color: #450b78;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 40px; /* 고정된 텍스트 크기 */
+    transition: opacity 0.3s ease-in-out;
+    display: inline-block;
+    width: 300px;
+  }
+  
+  .hover-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 30%;
+    margin-left: 190px;
+    transform: translate(-75%, -30%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 900px) {
+	.hover-content {
+		margin-left: 200px;
+	}
+  }
+  
+  .logo-text:hover {
+    opacity: 0;
+  }
+  
+  .logo-text:hover + .hover-content {
+    opacity: 1;
+  }
+  
+  .hover-text {
+    color: #450b78;
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .logo-image {
+    width: 50px;
+    height: 50px;
+    background: url("/images/logo/mainlogo.png") no-repeat center
+      center;
+    background-size: contain;
+    animation: spin 2s infinite linear;
+    margin: 0;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .logo {
+        left: 205px;
+        top: 20px;
+    }
+
+    .hover-content {
+        top: 20px;
+    }
+    }
+
+
+    .gray-line {
+        border-top: 1px solid #ccc; /* Gray border style */
+        margin-top: 20px; /* Adjust margin top as needed */
+        width: 100%; /* Full width */
+        margin-bottom: 50px;
+    }
+    
+  
+  .footer-text {
+	color: #450b78;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 40px; /* 고정된 텍스트 크기 */
+    display: inline-block;
+    width: 300px;
+  }

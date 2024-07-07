@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>App Landing Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body>
+	<header>
+	    <!-- Header Start -->
+	   <div class="header-area header-transparrent ">
+	        <div class="main-header header-sticky">
+	            <div class="container">
+	                <div class="row align-items-center">
+	                    <!-- Logo -->
+	                    <div class="col-xl-2 col-lg-2 col-md-2">
+	                        <div class="logo">
+	                            <a href="#" class="logo-text">CIRCLE TAROT</a>
+	                            <div class="hover-content">
+	                                <span class="hover-text left-text">동그</span>
+	                                <div class="logo-image"></div>
+	                                <span class="hover-text right-text">라미</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-xl-10 col-lg-10 col-md-10">
+	                        <!-- Main-menu -->
+	                        <div class="main-menu f-right d-none d-lg-block">
+	                            <nav>
+	                                <ul id="navigation">    
+	                                    <li class="active"><a th:href="@{/index}"> Home</a></li>
+	                                    <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                    <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                    <li><a th:href="@{/review}">리뷰</a></li>
+										<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
+	                            </nav>
+	                        </div>
+	                    </div>
+	                    <!-- Mobile Menu -->
+	                    <div class="col-12">
+	                        <div class="mobile_menu d-block d-lg-none"></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	   </div>
+	    <!-- Header End -->
+	</header>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="main-content1">
+        <div class="container1">
+            <div class="login-box1">
+                <div class="login-content1">로그인 및 회원가입</div>
+                <div class="login-container1">
+                    <a href=""><img th:src="@{/images/login_logo.png}" alt="Login Logo"></a>
+                    <div class="social-login">
+                        <a th:href="@{/oauth2/authorization/naver}" class="naver"><img th:src="@{/images/naver_logo.png}" alt="Naver Icon"></a>
+                        <a th:href="@{/oauth2/authorization/kakao}" class="kakao"><img th:src="@{/images/kakao_logo.png}" alt="Kakao Icon"></a>
+                        <a th:href="@{/oauth2/authorization/google}" class="google"><img th:src="@{/images/google_logo.png}" alt="Google Icon"></a>
+                        <a th:href="@{/signup}" class="login"><img th:src="@{/images/tarot_logo.png}" alt="Login Icon"></a>    
+                    </div>     
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 -->     
+    <footer>
+        <!-- Footer Start-->
+        <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <hr class="gray-line">
+                <div class="container">  
+                    <div class="row justify-content-between">
+                        <div class="col-lg-3 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <div class="logo">
+                                        <a href="#" class="logo-text">CIRCLE TAROT</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Copy-Right -->
+                    <div class="row align-items-center">
+                        <div class="col-xl-12">
+                            <div class="footer-copy-right">
+                                <p>
+                                    Copyright &copy;<script th:inline="javascript">document.write(new Date().getFullYear());</script>
+                                    All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">DongramiTarot</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End-->
+        </div>
+    </footer>
+
+    <!-- JS here -->
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.slicknav.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/slick.min.js}"></script>
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/animated.headline.js}"></script>
+    <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+    <script th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/jquery.magnific-popup.js}"></script>
+    <script th:src="@{/js/contact.js}"></script>
+    <script th:src="@{/js/jquery.form.js}"></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/mail-script.js}"></script>
+    <script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+    .single-features {
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        display: flex; /* Use flexbox for easier centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    
+    .features-caption {
+        position: relative;
+    }
+    
+    .features-caption img {
+        width: 100%;
+        max-width: 100%; /* Optionally, adjust max-width as needed */
+        display: block;
+        transition: opacity 0.3s ease-in-out;
+        margin-left: -5px; /* Adjust the margin-right as needed */
+    }
+	
+    .topic-name {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+        left: 10px;
+        right: 10px;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        border-radius: 5px;
+        font-size: 0.8em;
+    }
+
+    .topic-name > h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        border: 1px solid #fff; /* 흰색 border 추가 */
+        padding: 10px; /* 텍스트와 border 사이의 여백 추가 */
+        background-color: rgba(255, 255, 255, 0.8); /* 배경색을 흰색으로 설정하고 불투명도를 조절 */
+        border-radius: 15px;
+    }
+
+    @media (max-width: 1200px) {
+        .topic-name {
+            top: 60px;
+        }
+        .topic-name > h2 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .topic-name {
+            top: 120px;
+        }
+        .topic-name > h2 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+    
+    .single-features:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .single-features:hover .topic-name {
+        display: block;
+    }
+    
+    .single-features:hover .features-caption img {
+        opacity: 0.3;
+    }
+    
+    .right-shift {
+        margin-left: 190px; /* Adjust the value as needed */
+    }
+    
+    .section-padd4 {
+        margin-left: 150px; /* Adjust margin-left as needed */
+    }
+    
+    @media (max-width: 900px) {
+        .section-padd4 {
+            margin-left: 0; /* Remove margin-left for smaller screens */
+            top: 0; /* Adjust top position as needed */
+            left: 0; /* Adjust left position as needed */
+            width: 100%; /* Optionally, set width to 100% */
+        }
+    }
+    @media (max-width: 500px) {
+        .tarotRankingBubbles {
+            margin-top: 50px;
+        }
+    }
+
+    .collect-button {
+        margin-left: 690px;
+        margin-bottom: 50px;
+        border: none; /* Remove border */
+        background-color: transparent; /* Remove background color */
+        color: #450b78;
+        font-weight: bold;
+        cursor: pointer; /* Ensure cursor changes on hover */
+    }
+
+    @media (max-width: 1200px) {
+        .collect-button {
+            margin-left: 600px; /* Adjust left margin for medium-sized screens */
+        }
+    }
+    
+    @media (max-width: 900px) {
+        .collect-button {
+            margin-left: 290px; /* Adjust left margin for smaller screens */
+        }
+    }
+    
+    @media (max-width: 500px) {
+        .collect-button {
+            margin-top: 30px;
+            margin-left: 290px; /* Move button to the left for very small screens */
+            margin-right: 0; /* Reset right margin */
+        }
+    }
+
+    .break-mobile {
+        display: none; /* 기본적으로 숨김 */
+    }
+    
+    @media (max-width: 900px) {
+        .break-mobile {
+            display: block; /* 900px 이하에서는 보이도록 설정 */
+        }
+    }
+    
+    .gray-line {
+        border-top: 1px solid #ccc; /* Gray border style */
+        margin-top: 20px; /* Adjust margin top as needed */
+        width: 100%; /* Full width */
+        margin-bottom: 50px;
+    }
+    
+    .features-shpae {
+		margin-top: 200px;
+		width: 800px;
+	}
+	
+	.header-area .slicknav_btn {
+    left: -24px;
+}

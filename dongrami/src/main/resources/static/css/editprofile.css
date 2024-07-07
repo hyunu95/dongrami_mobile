@@ -1,0 +1,101 @@
+.change-box {
+    width: 100%; /* 원하는 너비로 설정 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: center; /* 내부 요소들을 가운데 정렬 */
+}
+
+@media (max-width : 500px) {
+    .change-box {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .image-logo {
+        margin-left: 50px;
+    }
+}
+
+.image-logo img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 40px;
+    margin-right: 50px;
+    border: 1px solid #888;
+    border-radius: 100px;
+}
+
+.menu > div {
+    margin-bottom: 15px;
+}
+
+.menu input, .menu select {
+    width: 100%; /* 입력 필드 및 셀렉트 박스의 너비를 100%로 설정 */
+    padding: 10px;
+    margin: 5px 0; /* 좌우 여백 제거 */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.menu select {
+    width: 100%; /* 셀렉트 박스의 너비를 100%로 설정 */
+}
+
+.changebutton {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 버튼 간의 간격 조정 */
+    margin-top: 20px; /* 버튼 위 여백 추가 */
+}
+
+.changebutton input[type="button"]:hover {
+    background-color: #5a3c99;
+}
+
+.withdraw-button,
+.save-button {
+    width: 130px;
+    height: 50px;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.withdraw-button {
+    background-color: #7150BD;
+}
+
+.save-button {
+    background-color: #7150BD;
+}
+
+.id input {
+    pointer-events: none;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #999;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+.form-control {
+    width: 100px;
+}
+
+.birth {
+    display: flex; /* 가로 정렬 */
+}
+
+.box {
+    flex: 1; /* 동일한 너비를 가지도록 */
+    margin: 0 5px; /* 선택적으로 여백 추가 */
+}
