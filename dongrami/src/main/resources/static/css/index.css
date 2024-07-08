@@ -98,6 +98,15 @@
             margin-top: 50px;
         }
     }
+    
+      .tarotRankingBubbles .node circle {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .tarotRankingBubbles .node:hover circle {
+    transform: scale(1.1);
+  }
 
     .collect-button {
         margin-left: 690px;
@@ -228,4 +237,53 @@
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
+
+@keyframes moveRanking1 {
+  0% { transform: translate(10px, 10px); }
+  50% { transform: translate(10px, -10px); }
+  100% { transform: translate(10px, 10px); }
 }
+
+@keyframes moveRanking2 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(0px, -20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes moveRanking3 {
+  0% { transform: translate(-20px, 0px); }
+  50% { transform: translate(-20px, -20px); }
+  100% { transform: translate(-20px, 0px); }
+}
+
+@keyframes moveRanking4 {
+  0% { transform: translate(-20px, 0px); }
+  50% { transform: translate(-20px, -20px); }
+  100% { transform: translate(-20px, 0px); }
+}
+
+@keyframes moveRanking5 {
+  0% { transform: translate(10px, 0px); }
+  50% { transform: translate(10px, -20px); }
+  100% { transform: translate(10px, 0px); }
+}
+
+.ranking1 { 
+  animation: moveRanking1 5s infinite ease-in-out; 
+}
+
+.ranking2 { 
+  animation: moveRanking2 5s infinite ease-in-out; 
+}
+
+.ranking3 { 
+  animation: moveRanking3 5s infinite ease-in-out; 
+}
+
+.ranking4 { 
+  animation: moveRanking4 5s infinite ease-in-out; 
+}
+
+.ranking5 { 
+  animation: moveRanking5 5s infinite ease-in-out; 
+}}

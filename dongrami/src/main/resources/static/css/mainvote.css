@@ -624,6 +624,7 @@ h3{
    
 }
 
+
 .dropdown-menu li:last-child a {
     border-bottom: none;
 }
@@ -642,4 +643,9 @@ h3{
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
+}
+/* 로그인 끝 */
+
+.vote-list{
+	width:100%;
 }

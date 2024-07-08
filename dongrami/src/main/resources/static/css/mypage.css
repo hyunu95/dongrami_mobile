@@ -161,6 +161,14 @@
   .ml-2 {
     width: 200px;
   }
+  
+  .menu > div img {
+	width: 80px;
+  }
+  
+  .right-box-container {
+	height: 430px;
+  }
 }
 
 /* 로그인 후 네비바 */

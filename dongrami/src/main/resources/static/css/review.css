@@ -622,5 +622,4 @@ body {
     .dropdown-toggle:focus + .dropdown-menu,
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
-    }
-}
+    }}

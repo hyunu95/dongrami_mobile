@@ -37,7 +37,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo">
-                                <a href="#" class="logo-text">CIRCLE TAROT</a>
+                                <a th:href="@{/}" class="logo-text">CIRCLE TAROT</a>
                                 <div class="hover-content">
                                     <span class="hover-text left-text">동그</span>
                                     <div class="logo-image"></div>
@@ -50,10 +50,10 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">    
-                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
+                                        <li class="active"><a th:href="@{/}"> Home</a></li>
                                         <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
                                         <li><a th:href="@{/vote}">논쟁 투표</a></li>
-                                        <li><a th:href="@{/review}">리뷰</a></li>
+                                        <li><a th:href="@{/review}">후기</a></li>
 										<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
 										     <a th:href="@{/login}">로그인 / 회원가입</a>
 										</li>
@@ -66,7 +66,7 @@
 										     	<li><a th:href="@{/mypage}">마이페이지</a></li>
 										     	<li><a th:href="@{/logout}">로그아웃</a></li>
 										   </ul>
-									  </li>
+									  </li>                  
                                 </nav>
                             </div>
                         </div>
@@ -97,13 +97,13 @@
                                     <!-- Slider btn -->
                                    <div class="slider-btns">
                                         <!-- Hero-btn -->
-                                        <a data-animation="fadeInLeft" data-delay="1.0s" href="industries.html" class="btn radius-btn">Download</a>
+                                        <a data-animation="fadeInLeft" data-delay="1.0s" th:href="@{/download}" class="btn radius-btn">Download</a>
                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight" data-delay="1s">
-                                    <img src="/images/hero/hero_right.png" alt="">
+                                    <img src="/images/hero/mainpagehero.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -225,7 +225,7 @@
                                     <g class="node" transform="translate(130, 50)">
                                         <svg class="item" role="list" aria-label="1순위" width="200" height="200" data-subcategory-id="?">
                                             <g class="ranking1">
-                                                <circle r="80" cx="110" cy="100" fill="#FF6347"></circle>
+                                                <circle r="80" cx="100" cy="100" fill="#FF6347"></circle>
                                                 <g class="t-group">
                                                     <text class="bubbleText" fill="#ffffff" font-size="24px" x="90" y="110" text-anchor="middle"></text>
                                                 </g>
@@ -299,25 +299,39 @@
                     <div class="col-xl-8 col-lg-8 col-md-col-md-7">
                         <div class="app-active owl-carousel"> 
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=4}">
                                 <img src="/images/mainvoteimg/alchole.png" alt="">
+								</a>
                             </div>
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=3}">
                                 <img src="/images/mainvoteimg/bluetooth.png" alt="">
+								</a>
                             </div>
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=1}">
                                 <img src="/images/mainvoteimg/duet.png" alt="">
+								</a>
                             </div>
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=5}">
                                 <img src="/images/mainvoteimg/event.png" alt="">
+								</a>
                             </div>
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=2}">
                                 <img src="/images/mainvoteimg/rice.png" alt="">
+								</a>
                             </div>
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=7}">
                                 <img src="/images/mainvoteimg/taxi.png" alt="">
+								</a>
                             </div>
                             <div class="single-cases-img">
+								<a th:href="@{/mainvote?id=6}">
                                 <img src="/images/mainvoteimg/travel.png" alt="">
+								</a>
                             </div>
                         </div>
                     </div>
@@ -364,7 +378,8 @@
 </footer>
    
 	<!-- JS here -->
-	
+		
+		<script th:src="@{/js/bubble.js}"></script>
 		<!-- All JS Custom Plugins Link Here here -->
         <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
 		
