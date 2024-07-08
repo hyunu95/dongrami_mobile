@@ -1984,24 +1984,6 @@ hr {
     border-top-color: #0078ff
 }
 
-{
-    position: absolute;
-    top: 50%;
-    z-index: 200;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    text-align: center;
-    display: inline-block;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding-top: 6px;
-    -webkit-transition: .6s;
-    -o-transition: .6s;
-    transition: .6s
-}
-
 .preloader .preloader-img img {
     max-width: 55px
 }
@@ -2243,7 +2225,7 @@ hr {
 }
 
 .section-padd4 {
-    padding-top: 200px;
+    padding-top: 150px;
     padding-bottom: 110px
 }
 
@@ -5396,7 +5378,7 @@ b,sup,sub,u,del {
 }
 
 .header-area .slicknav_btn {
-    top: -66px;
+    top: -48px;
 }
 
 .slicknav_menu .slicknav_nav a:hover {

@@ -1,12 +1,21 @@
 .change-box {
     width: 100%; /* 원하는 너비로 설정 */
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-bottom: 50px;
     text-align: center; /* 내부 요소들을 가운데 정렬 */
+}
+
+.profile-photo {
+    border-radius: 100px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    margin-top: 100px;
+    margin-left: 150px;
 }
 
 @media (max-width : 500px) {
@@ -19,13 +28,78 @@
     }
 }
 
+.box-container {
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative; /* Add this line */
+}
+
+@media (max-width: 900px) {
+    .box-container {
+        margin-left: 1px;
+    }
+}
+
 .image-logo img {
     width: 300px;
     height: auto;
-    margin-bottom: 40px;
-    margin-right: 50px;
-    border: 1px solid #888;
-    border-radius: 100px;
+    margin-top: 60px;
+    margin-right: 0px;
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .image-logo img {
+        margin-left: -45px;
+    }
+
+    .photo-box {
+        margin-top: 50px;
+    }
+}
+
+.photo-line {
+    border-radius: 200px;
+    width: 250px;
+    height: 250px;
+    border: 1px solid #ccc;
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+.photo-edit {
+    position: absolute; /* Add this line */
+    top: 240px; /* Adjust as needed */
+    left: 520px; /* Adjust as needed */
+    outline: 3px solid black; /* Change to outline */
+    border-radius: 50px;
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    z-index: 10; /* Add this line */
+}
+
+@media (max-width: 900px) {
+    .photo-edit {
+        margin-left: -280px;
+        margin-top: 5px;
+    }
+}
+
+.photo-edit-link {
+    width: 30px; /* Adjust width to desired size */
+    height: 30px; /* Adjust height to desired size */
+    display: inline-block; /* Ensure it takes only necessary space */
+    margin-left: 3px;
+}
+
+.photo-edit-link img {
+    padding: 5px;
+    width: 200%;
+    height: 200%;
+    margin-top: -15px;
+    margin-left: 2px;
 }
 
 .menu > div {

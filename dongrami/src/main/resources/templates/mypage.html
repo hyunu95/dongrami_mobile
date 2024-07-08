@@ -30,6 +30,7 @@
 </head>
 
 <body>
+
 	<header>
 	    <!-- Header Start -->
 	   <div class="header-area header-transparrent ">
@@ -39,7 +40,7 @@
 	                    <!-- Logo -->
 	                    <div class="col-xl-2 col-lg-2 col-md-2">
 	                        <div class="logo">
-	                            <a href="#" class="logo-text">CIRCLE TAROT</a>
+	                            <a th:href="@{/}" class="logo-text">CIRCLE TAROT</a>
 	                            <div class="hover-content">
 	                                <span class="hover-text left-text">동그</span>
 	                                <div class="logo-image"></div>
@@ -52,10 +53,10 @@
 	                        <div class="main-menu f-right d-none d-lg-block">
 	                            <nav>
 	                                <ul id="navigation">    
-	                                    <li class="active"><a th:href="@{/index}"> Home</a></li>
-	                                    <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                    <li class="active"><a th:href="@{/}"> Home</a></li>
+	                                    <li><a th:href="@{/topic}">타로 보러가기</a></li>
 	                                    <li><a th:href="@{/vote}">논쟁 투표</a></li>
-	                                    <li><a th:href="@{/review}">리뷰</a></li>
+	                                    <li><a th:href="@{/review}">후기</a></li>
 										<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
 	                            </nav>
 	                        </div>
@@ -71,9 +72,7 @@
 	    <!-- Header End -->
 	</header>
 
-	
-	
-		<!-- Slider Area Start-->
+	<!-- Slider Area Start-->
 	<section>
 	<!-- Slider Area Start-->
 	<div class="services-area">
@@ -96,7 +95,7 @@
 	                                </div>
 	                                <div class="d-flex align-items-center">
 	                                    <h2 class="username mb-0">사용자 이름</h2>
-	                                    <a href="#" class="edit-link"><img src="/images/mypageimg/gear.png" alt="Edit"></a>
+	                                    <a th:href="@{/editprofile}" class="edit-link"><img src="/images/mypageimg/gear.png" alt="Edit"></a>
 	                                </div>
 	                            </div>
 	                        </div>
