@@ -43,7 +43,7 @@ public class WebSecurityConfig {
                .csrf().disable()
                .authorizeHttpRequests(request -> request
 //                   .requestMatchers("/review").authenticated()
-                   .requestMatchers("/mainvote/**").permitAll()
+//                   .requestMatchers("/mainvote/**").permitAll()
                    .anyRequest().permitAll()
                )
                .formLogin(form -> form
@@ -111,7 +111,10 @@ public class WebSecurityConfig {
             
             HttpSession session = request.getSession();
             session.setAttribute("loggedInUser", member);
+//            session.setAttribute("userId", member.getUserId());
+//            session.setAttribute("email", email);
+//            session.setAttribute("provider", provider);
             response.sendRedirect("/");
-            }
+      }
 }
  
