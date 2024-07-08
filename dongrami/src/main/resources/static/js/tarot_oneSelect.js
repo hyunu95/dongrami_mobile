@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 card.style.opacity = 1;
                 card.style.position = 'absolute';
                 card.style.zIndex = '2';
-                card.style.backgroundImage = 'url(/images/vote_images/owl-card.jpg)';
+                card.style.backgroundImage = 'url(/images/owl-card.jpg)';
                 card.style.backgroundSize = 'cover';
                 container.appendChild(card);
 

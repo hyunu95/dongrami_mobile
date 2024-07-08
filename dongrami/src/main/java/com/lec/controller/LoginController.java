@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lec.entity.Member;
 import com.lec.service.LoginService;
@@ -18,7 +19,7 @@ public class LoginController {
     LoginService loginService;
 
 	@PostMapping("/custom-login")
-    public String login(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
+    public String login(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session, RedirectAttributes redirectAttributes) {
 		System.out.println("/custom-login경로로 들어옴");
 		System.out.println("email : " + email + ", password :" + password);
 		
@@ -29,8 +30,9 @@ public class LoginController {
             session.setAttribute("loggedInUser", authenticatedMember);
             return "redirect:/";
         } else {
-        	System.out.println("엥....?");
-            return "redirect:/signup";
+        	 System.out.println("엥....?");
+             redirectAttributes.addFlashAttribute("loginError", "입력하신 아이디나 비밀번호가 다릅니다.");
+             return "redirect:/signup";
         }
     }
 

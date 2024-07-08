@@ -2,30 +2,38 @@ package com.lec.Impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.lec.dto.MemberDTO;
 import com.lec.entity.Member;
+import com.lec.error.DuplicateMemberException;
 import com.lec.repository.MemberRepository;
 import com.lec.service.MemberService;
 
 
 @Service
 public class MemberServiceImpl implements MemberService{
+	
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	public Date birthDay = null;
 	
 	@Autowired
 	MemberRepository memberrepository;
 
-
+	@Autowired
+	EmailServiceImpl emailService;
 	
 	public Member join(MemberDTO memberDTO) throws ParseException {
+		
+		 // 회원가입 중복 체크
+	    if (memberrepository.existsByEmail(memberDTO.getEmail())) {
+	        throw new DuplicateMemberException("이미 가입한 이력이 있는 이메일입니다.");
+	    }
 		
 		Member member = memberDTO.toEntity();
 		
@@ -41,8 +49,6 @@ public class MemberServiceImpl implements MemberService{
 			}
 		
 		member.setUserId(userId);
-
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		member.setPassword(passwordEncoder.encode(memberDTO.getPassword()));
 		member.setBirthDate(birthDay);
 		member.setCreateDate(createDate);
@@ -85,6 +91,34 @@ public class MemberServiceImpl implements MemberService{
 			String birthday = year + "-" + month + "-" + day;
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			return dateFormat.parse(birthday);
+		}
+		
+		// 아이디 찾기
+		@Override
+		public List<Member> findByNickname(String nickname) {
+			return memberrepository.findAllByNickname(nickname);
+		}
+
+
+		// 비밀번호 찾기
+		@Override
+		public boolean findPassword(String email) {
+			
+			Member member = memberrepository.findByEmail(email);
+	        if (member != null) {
+	            String tempPassword = generateTempPassword();
+	            member.setPassword(passwordEncoder.encode(tempPassword));
+	            memberrepository.save(member);
+	            emailService.sendTempPassword(email, tempPassword);
+	            return true;
+	        }
+	        return false;
+			
+		}
+		
+		private String generateTempPassword() {
+			Random random = new Random();
+			return String.format("%08d", random.nextInt(100000000));
 		}
 }
 

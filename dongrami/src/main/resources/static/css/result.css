@@ -146,30 +146,25 @@ main {
   border-radius: 20px;
 }
 
-.showResult {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -170px;
-  background-color: #906DAC; /* footer의 save 버튼과 같은 색상 */
-  width: 150px;
-  height: 45px;
-  border: none;
-  border-radius: 4px; /* footer 버튼과 같은 border-radius */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.showResult a {
-  color: white;
-  text-decoration-line: none;
+.buttons a {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #906DAC;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    text-decoration-line: none;
 }
 
-.showResult a:hover {
-  color: white;
-  text-decoration-line: none;
+.buttons a:hover {
+    color: white;
+    text-decoration-line: none;
 }
 
 /* 모바일 스타일 (iPhone 12 Pro) */
@@ -218,15 +213,77 @@ main {
   }
 }
 
-.service-area span {
-  display: flex;
-  justify-content: center;
-  margin-top:-70px;
+/* 로그인 후 네비바 */
+
+.dropdown {
+    position: relative;
+    margin-right: -100px;
 }
 
-.service-area span p {
-  color: #450b78;
-  font-size: 20px;
-  font-weight: bold;
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
 
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: -10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px; /* 메뉴 너비 조정 */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    border: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: inherit;
+   
+}
+
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+@media (max-width: 991px) {
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown-toggle:focus + .dropdown-menu,
+    .dropdown-toggle:active + .dropdown-menu {
+        display: block;
+    }
 }
