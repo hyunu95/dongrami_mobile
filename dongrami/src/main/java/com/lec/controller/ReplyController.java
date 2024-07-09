@@ -1,68 +1,78 @@
-package com.lec.controller;
-
+package com.lec.service;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
 import com.lec.dto.ReplyDTO;
 import com.lec.entity.Reply;
 import com.lec.entity.Vote;
-import com.lec.service.ReplyService;
+import com.lec.repository.ReplyRepository;
+import com.lec.repository.VoteRepository;
 
-@RestController
-@RequestMapping("/api/replies")
-public class ReplyController {
+@Service
+public class ReplyService {
 
     @Autowired
-    private ReplyService replyService;
+    private ReplyRepository replyRepository;
+    
+    @Autowired
+    private VoteRepository voteRepository;
 
-    @GetMapping
     public List<Reply> getAllReplies() {
-        return replyService.getAllReplies();
+    	return replyRepository.findAll();
+    }
+    public Reply getReplyById(int id) {
+        return replyRepository.findById(id).orElse(null);
+    }
+    public List<Reply> getRepliesByParentReId(int parentReId) {
+        return replyRepository.findByParentReId(parentReId);
+    }
+    public Page<Reply> getRepliesByVoteId(int voteId, Pageable pageable) {
+        return replyRepository.findByVoteId(voteId, pageable);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Reply> getReplyById(@PathVariable int id) {
-        Reply reply = replyService.getReplyById(id);
-        return reply != null ? ResponseEntity.ok(reply) : ResponseEntity.notFound().build();
+    public ReplyDTO createReply(ReplyDTO replyDTO) {
+        Reply reply = new Reply(
+                replyDTO.getReplyId(),
+                replyDTO.getContent(),
+                replyDTO.getLevel(),
+                replyDTO.getReplyCreate(),
+                replyDTO.getReplyModify(),
+                replyDTO.getParentReId(),
+                // vote와 member는 이 예제에서 단순화를 위해 null로 설정
+                null, 
+                null
+        );
+        reply = replyRepository.save(reply);
+        return new ReplyDTO(reply);
     }
-    // 특정 부모 댓글 ID에 대한 모든 답글 조회
-    @GetMapping("/{parentReId}/reply")
-    public List<Reply> getRepliesByParentReId(@PathVariable("parentReId") int parentReId) {
-        return replyService.getRepliesByParentReId(parentReId);
+    public Reply addReplyToVote(int voteId, Reply newReply) {
+        Vote vote = voteRepository.findById(voteId)
+                .orElseThrow(() -> new RuntimeException("Vote not found"));
+        newReply.setVote(vote);
+        
+        return replyRepository.save(newReply);
     }
-    @GetMapping("/{voteId}/replies")
-    public Page<Reply> getRepliesByVoteId(@PathVariable("voteId") int voteId, Pageable pageable) {
-        return replyService.getRepliesByVoteId(voteId, pageable);
+    public Reply updateReply(int replyId, Reply replyDetails) {
+        Optional<Reply> optionalReply = replyRepository.findById(replyId);
+        if (optionalReply.isPresent()) {
+            Reply existingReply = optionalReply.get();
+            existingReply.setContent(replyDetails.getContent());
+            existingReply.setReplyModify(replyDetails.getReplyModify());
+            return replyRepository.save(existingReply);
+        } else {
+            return null;
+        }
     }
-    @PostMapping("/{voteId}")
-    public ResponseEntity<Reply> addReplyToVote(
-            @PathVariable("voteId") int voteId,
-            @RequestBody Reply newReply
-            ) {
 
-        // 특정 투표에 댓글 추가하기
-        Reply savedReply = replyService.addReplyToVote(voteId, newReply);
-
-        // 새로 작성된 댓글과 함께 201 Created 응답 반환
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedReply);
+    public void deleteReply(int replyId) {
+        replyRepository.deleteById(replyId);
     }
 
-
-    @PutMapping("/{replyId}")
-    public ResponseEntity<Reply> updateReply(@PathVariable("replyId") int replyId, @RequestBody Reply replyDetails) {
-        Reply updatedReply = replyService.updateReply(replyId, replyDetails);
-        return updatedReply != null ? ResponseEntity.ok(updatedReply) : ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{replyId}")
-    public ResponseEntity<Void> deleteReply(@PathVariable("replyId") int replyId) {
-        replyService.deleteReply(replyId);
-        return ResponseEntity.noContent().build();
-    }
 }
