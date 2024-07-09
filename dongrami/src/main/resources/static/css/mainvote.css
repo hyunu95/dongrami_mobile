@@ -5,6 +5,21 @@ body {
     background: #F4FEFF;
 }
 
+button.post-reply-button {
+    left: -22px;
+    position: relative;
+    display: inline-block;
+    padding: 5px 5px;
+    background-color:#EAEAEA;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    top: 37px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
 .single-post {
     position: relative;
     background: white;
@@ -439,8 +454,8 @@ small {
 
 .edit-content {
     position: absolute;
-    top: -79px;
-    width: 1097px;
+    top: 9px;
+    width: 1000px;
     height: 70px;
     resize: none;
     border: 1px solid #ddd;
@@ -465,8 +480,8 @@ small {
 .save-edit-button {
     height: 30px;
     position: relative;
-    top: -79px;
-    left: 1107px;
+    top: 9px;
+    left: 1007px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -478,8 +493,8 @@ small {
 .cancel-edit-button {
     height: 30px;
     position: relative;
-    top: -39px;
-    left: 1040px;
+    top: 49px;
+    left: 939px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -822,10 +837,15 @@ small {
 
     .reply-contents p {
         position: relative;
-        top: 10px;
+        top: 35px;
     }
 }
 @media (max-width: 767px){
+	small {
+    left: 1px;
+    top: -43px;
+    position: relative;
+ }
 	.reply-button{
 		padding: 3px 8px;
 		display: flex;
@@ -872,7 +892,7 @@ small {
     display: block;
     top: -18px;
 }
-.post-reply-button {
+button.post-reply-button {
     left: 223px;
     position: relative;
     display: inline-block;
@@ -928,7 +948,7 @@ small {
     position: relative;
     width: 354px;
 }
-/* ÃƒÂ«Ã‚Â¡Ã…â€œÃƒÂªÃ‚Â·Ã‚Â¸ÃƒÂ¬Ã‚ÂÃ‚Â¸ ÃƒÂ­Ã¢â‚¬ÂºÃ¢â‚¬Å¾ ÃƒÂ«Ã¢â‚¬Å¾Ã‚Â¤ÃƒÂ«Ã‚Â¹Ã¢â‚¬Å¾ÃƒÂ«Ã‚Â°Ã¢â‚¬Â */
+/* ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã†â€™Ãƒâ€šÃ‚ÂªÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂºÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â */
 
 .dropdown {
     position: relative;
@@ -959,7 +979,7 @@ small {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px; /* ÃƒÂ«Ã‚Â©Ã¢â‚¬ÂÃƒÂ«Ã¢â‚¬Â°Ã‚Â´ ÃƒÂ«Ã¢â‚¬Å¾Ã‹â€ ÃƒÂ«Ã‚Â¹Ã¢â‚¬Å¾ ÃƒÂ¬Ã‚Â¡Ã‚Â°ÃƒÂ¬Ã‚Â Ã¢â‚¬Â¢ */
+    width: 200px; /* ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â´ ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Â¹ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â«ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ */
     list-style-type: none;
     padding: 0;
     margin: 0;
