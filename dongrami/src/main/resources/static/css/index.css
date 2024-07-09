@@ -287,3 +287,30 @@
 .ranking5 { 
   animation: moveRanking5 5s infinite ease-in-out; 
 }}
+
+.node {
+    transition: transform 0.3s ease;
+}
+
+/* Adjust positions for screens 900px or less */
+@media (max-width: 900px) {
+    .node:nth-child(1) {
+        transform: translate(120px, 40px);
+    }
+
+    .node:nth-child(2) {
+        transform: translate(270px, -10px);
+    }
+
+    .node:nth-child(3) {
+        transform: translate(-10px, -5px);
+    }
+
+    .node:nth-child(4) {
+        transform: translate(70px, 150px);
+    }
+
+    .node:nth-child(5) {
+        transform: translate(280px, 150px);
+    }
+}

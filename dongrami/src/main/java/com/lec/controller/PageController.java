@@ -2,6 +2,7 @@ package com.lec.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
@@ -47,11 +48,6 @@ public class PageController {
     	return "tarotlist";
     }
     
-    @GetMapping("/editprofile")
-    public String editprofile() {
-    	return "editprofile";
-    }
-    
     @GetMapping("/index")
     public String index() {
         return "index";
@@ -61,6 +57,7 @@ public class PageController {
     public String tarot() {
     	return "tarot";
     }
+    
     
     @GetMapping("/result")
     public String result() {
