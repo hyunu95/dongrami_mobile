@@ -42,8 +42,9 @@ public class WebSecurityConfig {
            http
                .csrf().disable()
                .authorizeHttpRequests(request -> request
-//                   .requestMatchers("/review").authenticated()
-//                   .requestMatchers("/mainvote/**").permitAll()
+                .requestMatchers("/checkLogin").permitAll()
+            	.requestMatchers("/review").authenticated()                 
+            	.requestMatchers("/mainvote/**").permitAll()
                    .anyRequest().permitAll()
                )
                .formLogin(form -> form
