@@ -6,7 +6,6 @@
         <title>Dongrami Tarot</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
 		<!-- CSS here -->
@@ -53,7 +52,7 @@
                                         <li class="active"><a th:href="@{/}"> Home</a></li>
                                         <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
                                         <li><a th:href="@{/vote}">논쟁 투표</a></li>
-                                        <li><a th:href="@{/review}">후기</a></li>
+                                        <li><a th:href="@{/review}">리뷰</a></li>
 										<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
 										     <a th:href="@{/login}">로그인 / 회원가입</a>
 										</li>
@@ -223,11 +222,11 @@
                                 <svg class="tarotRankingBubbles" viewBox="0 0 500 350" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="title desc">
                                     <!-- 1순위 -->
                                     <g class="node" transform="translate(130, 50)">
-                                        <svg class="item" role="list" aria-label="1순위" width="200" height="200" data-subcategory-id="?">
+                                        <svg class="item" role="list" aria-label="1순위" width="250" height="250" data-subcategory-id="?">
                                             <g class="ranking1">
-                                                <circle r="80" cx="100" cy="100" fill="#FF6347"></circle>
+                                                <circle r="80" cx="110" cy="100" fill="#FF6347"></circle>
                                                 <g class="t-group">
-                                                    <text class="bubbleText" fill="#ffffff" font-size="24px" x="90" y="110" text-anchor="middle"></text>
+                                                    <text class="bubbleText" fill="#ffffff" font-size="24px" x="108" y="110" text-anchor="middle"></text>
                                                 </g>
                                             </g>
                                         </svg>
@@ -238,7 +237,7 @@
                                             <g class="ranking2">
                                                 <circle r="75" cx="100" cy="105" fill="#4682B4"></circle>
                                                 <g class="t-group">
-                                                    <text class="bubbleText" fill="#ffffff" font-size="20px" x="100" y="110" text-anchor="middle"></text>
+                                                    <text class="bubbleText" fill="#ffffff" font-size="20px" x="100" y="112" text-anchor="middle"></text>
                                                 </g>
                                             </g>
                                         </svg>
@@ -249,7 +248,7 @@
                                             <g class="ranking3">
                                                 <circle r="60" cx="120" cy="100" fill="#008080"></circle>
                                                 <g class="t-group">
-                                                    <text class="bubbleText" fill="#ffffff" font-size="18px" x="110" y="105" text-anchor="middle"></text>
+                                                    <text class="bubbleText" fill="#ffffff" font-size="18px" x="118" y="105" text-anchor="middle"></text>
                                                 </g>
                                             </g>
                                         </svg>
@@ -260,7 +259,7 @@
                                             <g class="ranking4">
                                                 <circle r="55" cx="100" cy="80" fill="#FFD700"></circle>
                                                 <g class="t-group">
-                                                    <text class="bubbleText" fill="#ffffff" font-size="15px" x="100" y="108" text-anchor="middle"></text>
+                                                    <text class="bubbleText" fill="#ffffff" font-size="15px" x="100" y="85" text-anchor="middle"></text>
                                                 </g>
                                             </g>
                                         </svg>
@@ -271,7 +270,7 @@
                                             <g class="ranking5">
                                                 <circle r="45" cx="100" cy="100" fill="#32CD32"></circle>
                                                 <g class="t-group">
-                                                    <text class="bubbleText" fill="#ffffff" font-size="13px" x="100" y="108" text-anchor="middle"></text>
+                                                    <text class="bubbleText" fill="#ffffff" font-size="12px" x="100" y="108" text-anchor="middle"></text>
                                                 </g>
                                             </g>
                                         </svg>

@@ -17,27 +17,27 @@ import lombok.ToString;
 @Data
 public class MemberDTO {
 	
-	@NotBlank
+
     private String email;
 
-	@NotBlank
+
     private String password;
 
-	@NotBlank
+
     private String password2;
 
-	@NotBlank
+
     private String nickname;
 
     private String phoneNumber;
 
-    @NotBlank
+
     private String birthYear;
 
-    @NotBlank
+
     private String birthMonth;
 
-    @NotBlank
+
     private String birthDay;
 
     private String gender;

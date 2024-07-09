@@ -115,42 +115,49 @@
     height: 50px;
 }
 
+.menu {
+	width: 320px;
+}
 .menu select {
     width: 100%; /* 셀렉트 박스의 너비를 100%로 설정 */
 }
 
 .changebutton {
     display: flex;
-    justify-content: center;
+    justify-content: space-around; /* 가로 중앙 정렬을 space-around으로 변경 */
     gap: 20px; /* 버튼 간의 간격 조정 */
     margin-top: 20px; /* 버튼 위 여백 추가 */
 }
 
-.changebutton input[type="button"]:hover {
-    background-color: #5a3c99;
-}
-
 .withdraw-button,
 .save-button {
-    width: 130px;
-    height: 50px;
+    width: 130px; /* 버튼 너비 */
+    height: 50px; /* 버튼 높이 */
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px; /* 내부 여백 */
     cursor: pointer;
     font-size: 13px;
     font-weight: bold;
     border-radius: 10px;
 }
 
+
 .withdraw-button {
-    background-color: #7150BD;
+    background-color: #7150BD; /* 배경색 */
+    margin-top: -100px;
+    margin-left: -160px;
 }
 
 .save-button {
-    background-color: #7150BD;
+    background-color: #008CBA; /* 다른 버튼 배경색 */
+    margin-right: -170px;
 }
 
+.withdraw-button:hover,
+.save-button:hover {
+    background-color: #5a3c99; /* 호버 배경색 */
+}
 .id input {
     pointer-events: none;
     background-color: #f0f0f0;
@@ -247,4 +254,24 @@
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
+
 }
+
+/* Ensuring all select boxes have the same width */
+.form-control {
+    width: auto; /* Make width auto for better alignment */
+}
+
+/* Aligning the select boxes within the birth div */
+.birth {
+    display: flex;
+    justify-content: center; /* Center the select boxes */
+    gap: 10px; /* Add gap between the select boxes */
+}
+
+.box {
+    flex: 1; /* Allow the boxes to grow equally */
+    margin: 0 5px; /* Optional additional margin */
+}
+
+

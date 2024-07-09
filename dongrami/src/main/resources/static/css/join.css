@@ -319,7 +319,7 @@ select option[value=""][disabled] {
 #info_birth select {
     width: 100px;
     margin-right: 0;
-    height:10px;
+    height:30px;
 }
 
 #info_birth select:last-of-type {
