@@ -17,7 +17,7 @@
     <link rel="stylesheet" th:href="@{/css/animate.min.css}">
     <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
     <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
-    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+    <!--<link rel="stylesheet" th:href="@{/css/themify-icons.css}">-->
     <link rel="stylesheet" th:href="@{/css/slick.css}">
     <link rel="stylesheet" th:href="@{/css/nice-select.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -28,45 +28,57 @@
 
 <body>
 	<header>
-	    <!-- Header Start -->
-	   <div class="header-area header-transparrent ">
-	        <div class="main-header header-sticky">
-	            <div class="container">
-	                <div class="row align-items-center">
-	                    <!-- Logo -->
-	                    <div class="col-xl-2 col-lg-2 col-md-2">
-	                        <div class="logo">
-	                            <a href="#" class="logo-text">CIRCLE TAROT</a>
-	                            <div class="hover-content">
-	                                <span class="hover-text left-text">동그</span>
-	                                <div class="logo-image"></div>
-	                                <span class="hover-text right-text">라미</span>
+	        <!-- Header Start -->
+	       <div class="header-area header-transparrent ">
+	            <div class="main-header header-sticky">
+	                <div class="container">
+	                    <div class="row align-items-center">
+	                        <!-- Logo -->
+	                        <div class="col-xl-2 col-lg-2 col-md-2">
+	                            <div class="logo">
+	                                <a href="/" class="logo-text">CIRCLE TAROT</a>
+	                                <div class="hover-content">
+	                                    <span class="hover-text left-text">동그</span>
+	                                    <div class="logo-image"></div>
+	                                    <span class="hover-text right-text">라미</span>
+	                                </div>
 	                            </div>
 	                        </div>
-	                    </div>
-	                    <div class="col-xl-10 col-lg-10 col-md-10">
-	                        <!-- Main-menu -->
-	                        <div class="main-menu f-right d-none d-lg-block">
-	                            <nav>
-	                                <ul id="navigation">    
-	                                    <li class="active"><a th:href="@{/index}"> Home</a></li>
-	                                    <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
-	                                    <li><a th:href="@{/vote}">논쟁 투표</a></li>
-	                                    <li><a th:href="@{/review}">리뷰</a></li>
-										<li style="margin-right: -100px;"><a th:href="@{/login}">로그인 / 회원가입</a></li>
-	                            </nav>
+	                        <div class="col-xl-10 col-lg-10 col-md-10">
+	                            <!-- Main-menu -->
+	                            <div class="main-menu f-right d-none d-lg-block">
+	                                <nav>
+	                                    <ul id="navigation">    
+	                                        <li class="active"><a th:href="@{/index}"> Home</a></li>
+	                                        <li><a th:href="@{/tarotlist}">타로 보러가기</a></li>
+	                                        <li><a th:href="@{/vote}">논쟁 투표</a></li>
+	                                        <li><a th:href="@{/review}">리뷰</a></li>
+											<li style="margin-right: -100px;" th:if="${session.loggedInUser == null}">
+											     <a th:href="@{/login}">로그인 / 회원가입</a>
+											</li>
+											<li class="dropdown" style="margin-right: -100px;" th:if="${session.loggedInUser != null}">
+											     <a href="#" class="dropdown-toggle">
+											          <img src="/images/mainlogo.png" alt="프로필 이미지" class="profile-img">
+											          <span th:text="${session.loggedInUser.nickname}">사용자 이름</span>
+											     </a>
+											     <ul class="dropdown-menu">
+											     	<li><a th:href="@{/mypage}">마이페이지</a></li>
+											     	<li><a th:href="@{/logout}">로그아웃</a></li>
+											   </ul>
+										  </li>
+	                                </nav>
+	                            </div>
 	                        </div>
-	                    </div>
-	                    <!-- Mobile Menu -->
-	                    <div class="col-12">
-	                        <div class="mobile_menu d-block d-lg-none"></div>
+	                        <!-- Mobile Menu -->
+	                        <div class="col-12">
+	                            <div class="mobile_menu d-block d-lg-none"></div>
+	                        </div>
 	                    </div>
 	                </div>
 	            </div>
-	        </div>
-	   </div>
-	    <!-- Header End -->
-	</header>
+	       </div>
+	        <!-- Header End -->
+	    </header>
 
     <!-- 메인 부분 -->
     <div class="main-content1">
@@ -78,30 +90,30 @@
                 <form id="joinForm" th:action="@{/join}" method="post">
                     <div class="form_item">
                         <h6 id="info">※ 필수 입력사항 : 이메일, 비밀번호, 이름</h6>
-                        <h6 id="password_info">※ 비밀번호 : 8~16자 영문 대 소문자, 숫자, 특수문자 사용</h6>
+                        <h6 id="password_info">※ 비밀번호 : 8~16자 영문 대 소문자, 숫자, 특수문자(@,!,&,%,^,*,$) 사용</h6>
                         <div class="input_with_button">
-                            <input type="text" name="email" placeholder="이메일"/>
+                            <input type="text" name="email" id = "email" placeholder="이메일"/>
                         </div>
                         <h5 id="valid_email" class="error"></h5>
                     </div>
 
                     <div class="form_item">
                         <div class="input_with_button">
-                            <input type="password" name="password" placeholder="비밀번호"/>
+                            <input type="password" name="password" id="password" placeholder="비밀번호"/>
                         </div>
                         <h5 id="valid_password" class="error"></h5>
                     </div>
 
                     <div class="form_item">
                         <div class="input_with_button">
-                            <input type="password" name="password2" placeholder="비밀번호 확인"/>
+                            <input type="password" name="password2" id="password2" placeholder="비밀번호 확인"/>
                         </div>
                         <h5 id="valid_password2" class="error"></h5>
                     </div>
 
                     <div class="form_item">
                         <div class="input_with_button" id="gender">
-                            <input type="text" name="nickname" placeholder="이름">
+                            <input type="text" name="nickname" id="nickname" placeholder="이름">
                             <input type="button" value="남자" data-gender="M" onclick="selectGender(this)">
                             <input type="button" value="여자" data-gender="F" onclick="selectGender(this)">
                         </div>
@@ -134,13 +146,13 @@
         </div>
     </div>
 
-    <div id="customModal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <p>회원가입이 완료되었습니다!</p>
-            <button id="modalLoginButton">로그인하기</button>
-        </div>
-    </div>
+	<div id="customModal" style="display:none;">
+	    <div class="modal-content">
+	         <span class="close-button">&times;</span>
+			 <p id="modalMessage"></p>
+			 <button id="modalLoginButton">로그인하기</button>
+	    </div>
+	 </div>
 
 	
 	
@@ -281,10 +293,13 @@
 
 	           // 비밀번호 확인
 	           if ($('#password').val() !== $('#password2').val()) {
+					console.log("비밀번호 확인");
 	               $('#valid_password2').text('비밀번호가 일치하지 않습니다.');
+				   console.log("비밀번호 불일치 완료");
 	               isValid = false;
 	           } else {
 	               $('#valid_password2').text('');
+				   console.log("비밀번호 일치");
 	           }
 
 	           // 닉네임 검사
@@ -309,6 +324,7 @@
 
 	         //모달
 	         if (isValid) {
+					console.log("모든 값이 유효성 검사 완료")
 	                     var formData = new FormData(this);
 	                     $.ajax({
 	                         url: $(this).attr('action'),
@@ -321,7 +337,8 @@
 	                             if(response.success) {
 	                                 loginButton.style.display = 'inline-block';
 	                             } else {
-	                                 loginButton.style.display = 'inline-block';
+									modalMessage.textContent = response.message;
+									loginButton.style.display = 'none';
 	                             }
 	                             modal.style.display = 'flex';
 	                         },

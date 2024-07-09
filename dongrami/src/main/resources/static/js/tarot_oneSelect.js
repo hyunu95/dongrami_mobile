@@ -96,8 +96,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 card.style.height = `${cardHeight}px`;
                 card.style.transform = `translate(${x}px, ${y}px) rotate(${angle + Math.PI/2}rad)`; // 회전 각도 조정
                 card.style.opacity = 1;
-                card.style.position = 'absolute'; // 위치 고정을 위해 추가
-                card.style.zIndex = '2'; // 초기 카드보다 위에 위치
+                card.style.position = 'absolute';
+                card.style.zIndex = '2';
+                card.style.backgroundImage = 'url(/images/owl-card.jpg)';
+                card.style.backgroundSize = 'cover';
                 container.appendChild(card);
 
                 const cardObj = {
