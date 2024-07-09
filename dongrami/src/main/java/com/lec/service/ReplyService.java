@@ -30,9 +30,11 @@ public class ReplyService {
     public Reply getReplyById(int id) {
         return replyRepository.findById(id).orElse(null);
     }
-    public List<Reply> getRepliesByParentReId(int parentReId) {
-        return replyRepository.findByParentReId(parentReId);
-    }
+
+	/*
+	 * public List<Reply> getRepliesByVoteId(int voteId) { return
+	 * replyRepository.findByVoteId(voteId); }
+	 */
     public Page<Reply> getRepliesByVoteId(int voteId, Pageable pageable) {
         return replyRepository.findByVoteId(voteId, pageable);
     }
