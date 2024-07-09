@@ -1,3 +1,36 @@
+//package com.lec.controller;
+//
+//import com.lec.dto.ReplyDTO;
+//import com.lec.entity.Reply;
+//import com.lec.service.ReplyService;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.List;
+//
+//@Controller
+//public class ReplyController {
+//
+//    @Autowired
+//    private ReplyService replyService;
+//    private ReplyDTO ReplyDTO;
+//
+//    @GetMapping("/vote/{voteId}/replies")
+//    public String getReplies(@PathVariable int voteId, Model model) {
+//        List<Reply> replies = replyService.getRepliesForVote(voteId);
+//        List<ReplyDTO> replyTree = replyService.buildReplyTree(replies);
+//        model.addAttribute("replies", replyTree);
+//        return "replyView";
+//    }
+//
+//    @PostMapping("/reply/add")
+//    public String addReply(@ModelAttribute Reply reply) {
+//        replyService.addReply(reply);
+//        return "redirect:/vote/" + reply.getVote().getVoteId() + "/replies";
+//    }
+//}
 package com.lec.controller;
 
 import java.util.List;
@@ -31,20 +64,23 @@ public class ReplyController {
         Reply reply = replyService.getReplyById(id);
         return reply != null ? ResponseEntity.ok(reply) : ResponseEntity.notFound().build();
     }
-    // 특정 부모 댓글 ID에 대한 모든 답글 조회
-    @GetMapping("/{parentReId}/reply")
-    public List<Reply> getRepliesByParentReId(@PathVariable("parentReId") int parentReId) {
-        return replyService.getRepliesByParentReId(parentReId);
-    }
+
+	/*
+	 * @GetMapping("/vote/{voteId}") public List<Reply>
+	 * getRepliesByVoteId(@PathVariable("voteId") int voteId) { return
+	 * replyService.getRepliesByVoteId(voteId); }
+	 */
     @GetMapping("/{voteId}/replies")
-    public Page<Reply> getRepliesByVoteId(@PathVariable("voteId") int voteId, Pageable pageable) {
+    public Page<Reply> getRepliesByVoteId(
+        @PathVariable("voteId") int voteId,
+        Pageable pageable
+    ) {
         return replyService.getRepliesByVoteId(voteId, pageable);
     }
     @PostMapping("/{voteId}")
     public ResponseEntity<Reply> addReplyToVote(
             @PathVariable("voteId") int voteId,
-            @RequestBody Reply newReply
-            ) {
+            @RequestBody Reply newReply) {
 
         // 특정 투표에 댓글 추가하기
         Reply savedReply = replyService.addReplyToVote(voteId, newReply);
