@@ -33,8 +33,8 @@ public class ReplyService {
    public Page<Reply> getRepliesByParentReId(int parentReId, Pageable pageable) {
         return replyRepository.findByParentReId(parentReId, pageable);
     }
-    public Page<Reply> getRepliesByVoteId(int voteId, Pageable pageable) {
-        return replyRepository.findByVoteId(voteId, pageable);
+    public Page<Reply> getRepliesByVoteId(int voteId, int level, Pageable pageable) {
+        return replyRepository.findByVoteId(voteId, level, pageable);
     }
 
     public ReplyDTO createReply(ReplyDTO replyDTO) {
