@@ -777,15 +777,16 @@ small {
     }
 
     .comment-content p {
-        min-height: 50px;
+        min-height: 95px;
         width: 89%;
         border-radius: 10px;
         position: relative;
         overflow-wrap: break-word;
-        top: 12px;
+        top: 14px;
         left: 15px;
         border: 1px solid #ccc;
         background: #E2E2E2;
+        padding: 0px 10px;
     }
 
     .comment-item h5 {
@@ -832,6 +833,7 @@ small {
         width: 248px;
         top: 2px;
         height: auto;
+
     }
 
     .single-post {
@@ -946,7 +948,8 @@ small {
     }
 
     .comment-edit-form {
-        top: -30px;
+		left: -1px;
+        top: -153px;
         position: relative;
         height: auto;
         overflow-wrap: break-word;
@@ -1122,4 +1125,38 @@ small {
         padding: 11px 0;
         z-index: 1000;
     }
+   .modal-footer button{
+	width:63px;
+	text-align: center;
+	position:relative;
+	left:10px;
+  }
+}
+.modal-content {
+    width: 320px;
+    height: 200px;
+}
+  .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* 전체 높이를 사용하여 중앙에 정렬 */
+  }
+  .modal-footer button{
+    width: 63px;
+    text-align: center;
+    position: relative;
+    left: -116px;
+    padding: 22px 15px;
+    background:#7150BD;
+  }
+  .modal-footer {
+	border:none;
+  }
+  .modal-header {
+	border: none;
+	text-align:center;
+}
+.modal-body {
+	text-align:center;
 }
