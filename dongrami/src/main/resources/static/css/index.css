@@ -98,6 +98,15 @@
             margin-top: 50px;
         }
     }
+    
+      .tarotRankingBubbles .node circle {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .tarotRankingBubbles .node:hover circle {
+    transform: scale(1.1);
+  }
 
     .collect-button {
         margin-left: 690px;
@@ -153,4 +162,155 @@
 	
 	.header-area .slicknav_btn {
     left: -24px;
+}
+
+/* 로그인 후 네비바 */
+
+.dropdown {
+    position: relative;
+    margin-right: -100px;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: -10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px; /* 메뉴 너비 조정 */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    border: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: inherit;
+   
+}
+
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+@media (max-width: 991px) {
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown-toggle:focus + .dropdown-menu,
+    .dropdown-toggle:active + .dropdown-menu {
+        display: block;
+    }
+
+@keyframes moveRanking1 {
+  0% { transform: translate(10px, 10px); }
+  50% { transform: translate(10px, -10px); }
+  100% { transform: translate(10px, 10px); }
+}
+
+@keyframes moveRanking2 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(0px, -20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes moveRanking3 {
+  0% { transform: translate(-20px, 0px); }
+  50% { transform: translate(-20px, -20px); }
+  100% { transform: translate(-20px, 0px); }
+}
+
+@keyframes moveRanking4 {
+  0% { transform: translate(-20px, 0px); }
+  50% { transform: translate(-20px, -20px); }
+  100% { transform: translate(-20px, 0px); }
+}
+
+@keyframes moveRanking5 {
+  0% { transform: translate(10px, 0px); }
+  50% { transform: translate(10px, -20px); }
+  100% { transform: translate(10px, 0px); }
+}
+
+.ranking1 { 
+  animation: moveRanking1 5s infinite ease-in-out; 
+}
+
+.ranking2 { 
+  animation: moveRanking2 5s infinite ease-in-out; 
+}
+
+.ranking3 { 
+  animation: moveRanking3 5s infinite ease-in-out; 
+}
+
+.ranking4 { 
+  animation: moveRanking4 5s infinite ease-in-out; 
+}
+
+.ranking5 { 
+  animation: moveRanking5 5s infinite ease-in-out; 
+}}
+
+.node {
+    transition: transform 0.3s ease;
+}
+
+/* Adjust positions for screens 900px or less */
+@media (max-width: 900px) {
+    .node:nth-child(1) {
+        transform: translate(120px, 40px);
+    }
+
+    .node:nth-child(2) {
+        transform: translate(270px, -10px);
+    }
+
+    .node:nth-child(3) {
+        transform: translate(-10px, -5px);
+    }
+
+    .node:nth-child(4) {
+        transform: translate(70px, 150px);
+    }
+
+    .node:nth-child(5) {
+        transform: translate(280px, 150px);
+    }
 }

@@ -186,7 +186,7 @@ body {
     }
 
     .custom-integration-card-content {
-        height: auto; /* 컨텐츠 높이를 자동으로 조정 */
+        /* height: auto; 컨텐츠 높이를 자동으로 조정 */
     }
 }
 

@@ -2,15 +2,12 @@ package com.lec.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
    
-    
-    @GetMapping("/review")
-    public String reviewPage() {
-        return "review";
-    }
+   
     
     @GetMapping("/mypage")
     public String myPage() {
@@ -47,23 +44,8 @@ public class PageController {
     	return "tarotlist";
     }
     
-    @GetMapping("/editprofile")
-    public String editprofile() {
-    	return "editprofile";
-    }
-    
     @GetMapping("/index")
     public String index() {
         return "index";
-    }
-    
-    @GetMapping("/tarot")
-    public String tarot() {
-    	return "tarot";
-    }
-    
-    @GetMapping("/result")
-    public String result() {
-    	return "result";
     }
 }

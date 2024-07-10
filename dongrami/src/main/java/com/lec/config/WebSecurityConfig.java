@@ -10,6 +10,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -42,8 +44,9 @@ public class WebSecurityConfig {
            http
                .csrf().disable()
                .authorizeHttpRequests(request -> request
-//                   .requestMatchers("/review").authenticated()
-                   .requestMatchers("/mainvote/**").permitAll()
+                .requestMatchers("/checkLogin").permitAll()
+            	.requestMatchers("/review").authenticated()                 
+            	.requestMatchers("/mainvote/**").permitAll()
                    .anyRequest().permitAll()
                )
                .formLogin(form -> form
@@ -111,7 +114,15 @@ public class WebSecurityConfig {
             
             HttpSession session = request.getSession();
             session.setAttribute("loggedInUser", member);
+//            session.setAttribute("userId", member.getUserId());
+//            session.setAttribute("email", email);
+//            session.setAttribute("provider", provider);
             response.sendRedirect("/");
-            }
+      }
+       
+       @Bean
+       public PasswordEncoder passwordEncoder() {
+           return new BCryptPasswordEncoder();
+       }
 }
  
