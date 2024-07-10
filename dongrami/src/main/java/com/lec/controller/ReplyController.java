@@ -33,8 +33,8 @@ public class ReplyController {
     }
     // 특정 부모 댓글 ID에 대한 모든 답글 조회
     @GetMapping("/{parentReId}/reply")
-    public List<Reply> getRepliesByParentReId(@PathVariable("parentReId") int parentReId) {
-        return replyService.getRepliesByParentReId(parentReId);
+    public Page<Reply> getRepliesByParentReId(@PathVariable("parentReId")int parentReId , Pageable pageable) {
+        return replyService.getRepliesByParentReId(parentReId, pageable);
     }
     @GetMapping("/{voteId}/replies")
     public Page<Reply> getRepliesByVoteId(@PathVariable("voteId") int voteId, Pageable pageable) {
@@ -45,7 +45,6 @@ public class ReplyController {
             @PathVariable("voteId") int voteId,
             @RequestBody Reply newReply
             ) {
-
         // 특정 투표에 댓글 추가하기
         Reply savedReply = replyService.addReplyToVote(voteId, newReply);
 
