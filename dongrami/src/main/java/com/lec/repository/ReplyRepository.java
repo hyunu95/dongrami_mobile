@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.lec.entity.Reply;
 
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 public interface ReplyRepository extends JpaRepository<Reply, Integer> {
