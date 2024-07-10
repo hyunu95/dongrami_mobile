@@ -52,15 +52,4 @@ public class PageController {
     public String index() {
         return "index";
     }
-    
-    @GetMapping("/tarot")
-    public String tarot() {
-    	return "tarot";
-    }
-    
-    
-    @GetMapping("/result")
-    public String result() {
-    	return "result";
-    }
 }
