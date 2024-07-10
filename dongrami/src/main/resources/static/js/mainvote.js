@@ -497,9 +497,9 @@ document.getElementById('replyForm').addEventListener('submit', function(event) 
 	const kstOffset = 9 * 60 * 60 * 1000;  // KST는 UTC+9
     const kstDate = new Date(now.getTime() + kstOffset);  // KST 시간 계산
     // userId 요소가 존재하지 않거나 value가 null인 경우 경고 메시지 표시 후 함수 종료
-    if (!userIdElem || !userIdElem.value) {
-        alert('로그인 후 이용해 주세요');
-        return;  // 함수 종료
+	 if (!userIdElem || !userIdElem.value) {
+      $('#loginModal').modal('show'); // 모달을 표시합니다.
+      return;  // 함수 종료
     }
 
     const userId = userIdElem.value;
