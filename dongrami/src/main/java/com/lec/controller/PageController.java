@@ -48,4 +48,9 @@ public class PageController {
     public String index() {
         return "index";
     }
+
+       @GetMapping("/download")
+    public String downLoad() {
+    	return "download";
+    }
 }
