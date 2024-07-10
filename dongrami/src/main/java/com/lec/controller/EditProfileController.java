@@ -30,7 +30,7 @@ public class EditProfileController {
             return "redirect:/login";
         }
 
-        String userId = principal.getName();
+        String userId = principal.getName().substring(0,10); // 사용자 이름 가져오기
         MemberDTO memberDTO = editProfileService.getMemberDTO(userId);
         if (memberDTO != null) {
             model.addAttribute("memberDTO", memberDTO);
