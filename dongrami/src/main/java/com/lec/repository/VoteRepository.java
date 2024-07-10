@@ -8,5 +8,7 @@ import com.lec.entity.Vote;
 
 @Repository
 public interface VoteRepository extends JpaRepository<Vote, Integer> {
+
+	    void deleteByMemberUserId(String userId);
 	
 }
