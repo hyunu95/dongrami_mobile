@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 댓글 조회
     function fetchComments(voteId, page = 0, size = 5) {
-        fetch(`/api/replies/${voteId}/replies?page=${page}&size=${size}&sort=replyCreate,desc`)
+        fetch(`/api/replies/${voteId}/replies?page=${page}&size=${size}&sort=replyCreate,desc&level=1`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch comments');
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return response.json();
             })
             .then(data => {
-                const comments = data.content; // Page 객체의 content 속성에 실제 댓글들이 있습니다.
+                const comments = data.content.sort((a, b) => new Date(b.replyCreate) - new Date(a.replyCreate));
                 const commentDiv = document.getElementById('comment-section'); // `commentDiv`가 정의된 곳에 맞게 수정
                 commentDiv.innerHTML = '';
                 comments.forEach(comment => {
