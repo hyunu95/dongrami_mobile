@@ -37,8 +37,8 @@ public class ReplyController {
         return replyService.getRepliesByParentReId(parentReId, pageable);
     }
     @GetMapping("/{voteId}/replies")
-    public Page<Reply> getRepliesByVoteId(@PathVariable("voteId") int voteId, Pageable pageable) {
-        return replyService.getRepliesByVoteId(voteId, pageable);
+    public Page<Reply> getRepliesByVoteId(@PathVariable("voteId") int voteId,  @RequestParam(value = "level", defaultValue = "1") int level, Pageable pageable ) {
+        return replyService.getRepliesByVoteId(voteId, level, pageable);
     }
     @PostMapping("/{voteId}")
     public ResponseEntity<Reply> addReplyToVote(
