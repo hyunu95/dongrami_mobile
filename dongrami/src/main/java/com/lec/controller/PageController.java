@@ -7,11 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
    
-    
-    @GetMapping("/review")
-    public String reviewPage() {
-        return "review";
-    }
+   
     
     @GetMapping("/mypage")
     public String myPage() {
