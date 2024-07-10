@@ -24,5 +24,6 @@ public interface ReplyRepository extends JpaRepository<Reply, Integer> {
 	@Query("SELECT r FROM Reply r WHERE r.parentReId= :parentReId ORDER BY r.replyCreate DESC")
 	Page<Reply> findByParentReId(@Param("parentReId") int parentReId, Pageable pageable);
 
-
+	    @Transactional
+    void deleteByMemberUserId(String userId);
 }
