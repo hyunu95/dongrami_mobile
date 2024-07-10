@@ -269,13 +269,13 @@ main {
 
   .service-area {
     padding: 20px 0;
-    height: 500px;
+    height: 550px;
   }
 
   .service-icon img {
-    width: 180px;
-    margin-bottom: 20px;
-    margin-top: -70px;
+    width: 150px;
+    margin-bottom: 10px;
+    margin-top: -60px;
   }
 
   .center-card {
@@ -295,24 +295,22 @@ main {
   }
   
   #card1 img{
-	width: 120px;
-	height: 200px;
-	margin-left: -20px;
+	width: 150px;
+	height: 230px;
+	margin-left: -25px;
 }
 
 .contentDiv{
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 25px;
+	margin-right: 25px;
 }
 
 #readingContent {
-    color: black;  /* 글씨 색을 검정으로 변경 */
-    white-space: pre-line;
-    line-height: 1.2;  /* 줄 간격을 줄임 */
+    line-height: 2px;  /* 줄 간격을 줄임 */
     word-break: keep-all;
     word-wrap: break-word;
     text-align: justify;
-    padding: 15px;
+    padding: 12px;
 }
 
 #readingContent p {
