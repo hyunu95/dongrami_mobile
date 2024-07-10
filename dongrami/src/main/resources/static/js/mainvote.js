@@ -151,7 +151,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     commentDiv.appendChild(commentElem);
                     fetchReplies(comment.replyId, commentElem); // 각 댓글의 답글 가져오기
                 });
-
+				  const singlePostContainer = document.querySelector('.single-post');
+    				if (comments.length === 0) {
+        				singlePostContainer.style.minHeight = '400px';
+   					 } else {
+        					singlePostContainer.style.minHeight = 'auto';
+    					}
                 // 페이지 네이션 UI 업데이트
                 updatePagination(data, voteId, size);
             })
@@ -159,74 +164,91 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Error fetching comments:', error);
             });
     }
-function fetchReplies(parentReId, commentElem) {
-    fetch(`/api/replies/${parentReId}/reply`)
+function fetchReplies(parentReId, commentElem, page = 0, size = 5) {
+    fetch(`/api/replies/${parentReId}/reply?page=${page}&size=${size}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch replies');
             }
             return response.json();
         })
-        .then(replies => {
+        .then(data => {
+            const replies = data.content;
+            const totalPages = data.totalPages;
+            const currentPage = data.number;
+
             console.log('Fetched replies:', replies);
 
-            // 답글 컨테이너 가져오기
             const replyForm = commentElem.querySelector('.comment-reply-form');
             let replyContainer = replyForm.querySelector('.reply-container');
 
-            // 기존의 답글 컨테이너 초기화
             if (replyContainer) {
-                replyContainer.innerHTML = ''; // 기존의 답글 컨테이너 내용을 모두 지움
+                replyContainer.innerHTML = '';
             } else {
                 replyContainer = document.createElement('div');
                 replyContainer.classList.add('reply-container');
                 replyForm.appendChild(replyContainer);
             }
 
-            // 답글이 없는 경우
             if (replies.length === 0) {
-                // 새로운 답글 폼 생성
                 const noRepliesDiv = document.createElement('div');
                 noRepliesDiv.classList.add('no-replies');
                 noRepliesDiv.textContent = '답글이 없습니다.';
                 replyContainer.appendChild(noRepliesDiv);
-
-                // 답글 폼의 높이 설정
                 replyForm.style.minHeight = '150px';
-
-                // 답글 작성 버튼 클릭 시 처리
-                const postReplyButton = replyForm.querySelector('.post-reply-button');
-                // 기존의 이벤트 리스너 제거
-                postReplyButton.removeEventListener('click', postReplyButtonClickHandler);
-
-                const postReplyButtonClickHandler = function() {
-                    const replyContent = document.getElementById(`replyContent_${parentReId}`).value;
-                    postReply(parentReId, replyContent, commentElem);
-
-                    // 답글 작성 후, '.no-replies' 요소 삭제
-                    if (replyContainer.querySelector('.no-replies')) {
-                        replyContainer.querySelector('.no-replies').remove();
-                        replyForm.style.minHeight = 'auto'; // 답글이 있을 경우 폼의 높이 초기화
-                    }
-                };
-
-                postReplyButton.addEventListener('click', postReplyButtonClickHandler);
-
             } else {
-                // 답글이 있는 경우
                 replies.forEach(reply => {
                     const replyElem = createReplyElement(reply);
                     replyContainer.appendChild(replyElem);
                 });
-
-                // 답글 폼의 높이 초기화
                 replyForm.style.minHeight = 'auto';
             }
+
+            // 페이징 버튼 생성
+            createPaginationButtons(replyContainer, parentReId, commentElem, totalPages, currentPage);
+
+            // 이벤트 리스너 설정 (중복되지 않도록)
+            const postReplyButton = replyForm.querySelector('.post-reply-button');
+
+            // 기존 이벤트 리스너 제거
+            const newButton = postReplyButton.cloneNode(true);
+            postReplyButton.parentNode.replaceChild(newButton, postReplyButton);
+
+            newButton.addEventListener('click', function() {
+                const replyContent = document.getElementById(`replyContent_${parentReId}`).value;
+                postReply(parentReId, replyContent, commentElem, page, size);
+
+                if (replyContainer.querySelector('.no-replies')) {
+                    replyContainer.querySelector('.no-replies').remove();
+                    replyForm.style.minHeight = 'auto';
+                }
+            });
         })
         .catch(error => {
             console.error('Error fetching replies:', error);
         });
 }
+
+
+function createPaginationButtons(container, parentReId, commentElem, totalPages, currentPage) {
+    const paginationContainer = document.createElement('div');
+    paginationContainer.classList.add('pagination-container');
+
+    for (let i = 0; i < totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i + 1;
+        if (i === currentPage) {
+            pageButton.classList.add('active');
+        }
+        pageButton.addEventListener('click', () => {
+            fetchReplies(parentReId, commentElem, i);
+        });
+        paginationContainer.appendChild(pageButton);
+    }
+
+    container.appendChild(paginationContainer);
+}
+
 
 
 
@@ -284,12 +306,12 @@ function fetchReplies(parentReId, commentElem) {
 function createCommentElement(comment) {
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment-item');
-
+	const formattedReplyCreate = comment.replyCreate.replace('T', ' ').substring(0, 16);
     commentDiv.innerHTML = `
         <div class="comment-content">
             <h4>${comment.member.nickname}</h4>
             <p>${comment.content}</p>
-            <h5>${comment.replyCreate}</h5>
+            <h5>${formattedReplyCreate}</h5>
         </div>
         <div class="comment-actions">
             <button class="menu-button">...</button>
@@ -430,25 +452,16 @@ function createCommentElement(comment) {
     }
   function postReply(parentReId, replyContent, commentElem) {
     const userId = document.getElementById('userId').value;  // 사용자 ID 가져오기
-    
-    // 사용자 ID가 null인 경우 경고 메시지 표시 후 함수 종료
-    if (!userId) {
-        alert('로그인 후 이용해 주세요');
-        return;  // 함수 종료
-    }
-
-    // 답글 내용이 비어있는 경우 저장되지 않도록 처리
-    if (!replyContent.trim()) {
-        console.error('Reply content is empty. Cannot post empty reply.');
-        return;  // 함수 종료
-    }
+    const now = new Date();  // 현재 시간
+    const kstOffset = 9 * 60 * 60 * 1000;  // KST는 UTC+9
+    const kstDate = new Date(now.getTime() + kstOffset);  // KST 시간 계산
 
     const replyData = {
         content: replyContent,
         level: 2,  // 레벨 설정 (답글은 2로 고정)
         member: userId,
         parentReId: parentReId,
-        replyCreate: new Date().toISOString(),
+        replyCreate: kstDate.toISOString(),  // KST 시간으로 설정
         voteId: voteId,
     };
 
@@ -471,6 +484,7 @@ function createCommentElement(comment) {
 
 
 
+
 document.getElementById('replyForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -479,7 +493,9 @@ document.getElementById('replyForm').addEventListener('submit', function(event) 
     const userIdElem = document.getElementById('userId');  // 사용자 ID 요소 가져오기
     const userNickname = document.getElementById('userNicknameInput').value;
     const parentReId = document.getElementById('parentReId').value; // 부모 댓글의 ID
-
+	 const now = new Date();  // 현재 시간
+	const kstOffset = 9 * 60 * 60 * 1000;  // KST는 UTC+9
+    const kstDate = new Date(now.getTime() + kstOffset);  // KST 시간 계산
     // userId 요소가 존재하지 않거나 value가 null인 경우 경고 메시지 표시 후 함수 종료
     if (!userIdElem || !userIdElem.value) {
         alert('로그인 후 이용해 주세요');
@@ -487,13 +503,12 @@ document.getElementById('replyForm').addEventListener('submit', function(event) 
     }
 
     const userId = userIdElem.value;
-
     const replyData = {
         content: content,
         level: level,
         member: userId,
         parentReId: parentReId,
-        replyCreate: new Date().toISOString(),
+        replyCreate: kstDate.toISOString(),
         voteId: voteId,
     };
 
@@ -519,12 +534,12 @@ document.getElementById('replyForm').addEventListener('submit', function(event) 
   function createReplyElement(reply) {
     const replyElem = document.createElement('div');
     replyElem.classList.add('reply-container'); // reply-container 클래스 추가
-
+	const formattedReplyCreate = reply.replyCreate.replace('T', ' ').substring(0, 16);
     replyElem.innerHTML = `
         <div class="reply-contents">
             <p>${reply.content}</p>
             <small>${reply.member.nickname}</small>
-            <h6>${reply.replyCreate}</h6>
+            <h6>${formattedReplyCreate}</h6>
         </div>
     `;
     
