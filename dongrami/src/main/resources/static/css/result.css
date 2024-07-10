@@ -103,116 +103,6 @@
     width: 300px;
   }
 
-  /* 기본 스타일 (데스크톱) */
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.service-area {
-  background-color: #F4FEFF;
-  width: 100%;
-  padding: 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.service-icon img {
-  width: 300px;
-  height: auto;
-  margin-bottom: 40px;
-}
-
-.say-something-aera {
-  background-color: white;
-  padding: 90px 0; /* pt-90 pb-90 대체 */
-  width: 100%;
-}
-
-.card-select {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-#card1 {
-  width: 150px;
-  height: 250px;
-  border: 3px dotted #928f8fbd;
-  border-radius: 20px;
-}
-
-.buttons {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.buttons a {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    background-color: #906DAC;
-    cursor: pointer;
-    border-radius: 4px;
-    color: white;
-    text-decoration-line: none;
-}
-
-.buttons a:hover {
-    color: white;
-    text-decoration-line: none;
-}
-
-/* 모바일 스타일 (iPhone 12 Pro) */
-@media screen and (max-width: 390px) {
-  body, html {
-    width: 390px;
-    height: 844px;
-  }
-
-  .container {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1;
-    justify-content: space-between;
-  }
-
-  .service-area {
-    padding: 20px 0;
-  }
-
-  .service-icon img {
-    width: 180px;
-    margin-bottom: 20px;
-  }
-
-  .center-card {
-    width: 80px;
-    height: 130px;
-    margin: 20px auto;
-  }
-
-  .say-something-aera {
-      padding: 40px 0; /* 모바일에서 패딩 줄임 */
-  }
-  
-  #card1 {
-      width: 100px;
-      height: 170px;
-      border: 2px dotted #928f8fbd;
-  }
-}
-
 /* 로그인 후 네비바 */
 
 .dropdown {
@@ -286,4 +176,160 @@ main {
     .dropdown-toggle:active + .dropdown-menu {
         display: block;
     }
+  }
+  
+/* 기본 스타일 (데스크톱) */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.service-area {
+  background-color: #F4FEFF;
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-icon img {
+  width: 300px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.say-something-aera {
+  background-color: white;
+  padding: 90px 0; /* pt-90 pb-90 대체 */
+  width: 100%;
+}
+
+.card-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#card1 {
+  width: 150px;
+  height: 250px;
+ /* border: 3px dotted #928f8fbd;*/
+  border-radius: 20px;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons a {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #906DAC;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    text-decoration-line: none;
+}
+
+.buttons a:hover {
+    color: white;
+    text-decoration-line: none;
+}
+
+#card1 img{
+	width: 150px;
+	height: 230px;
+}
+
+/* 모바일 스타일 (iPhone 12 Pro) */
+@media screen and (max-width: 390px) {
+  body, html {
+    width: 390px;
+    height: 844px;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .service-area {
+    padding: 20px 0;
+    height: 500px;
+  }
+
+  .service-icon img {
+    width: 180px;
+    margin-bottom: 20px;
+    margin-top: -70px;
+  }
+
+  .center-card {
+    width: 80px;
+    height: 130px;
+    margin: 20px auto;
+  }
+
+  .say-something-aera {
+      padding: 40px 0; /* 모바일에서 패딩 줄임 */
+  }
+  
+  #card1 {
+      width: 100px;
+      height: 170px;
+      /*border: 2px dotted #928f8fbd;*/
+  }
+  
+  #card1 img{
+	width: 120px;
+	height: 200px;
+	margin-left: -20px;
+}
+
+.contentDiv{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#readingContent {
+    color: black;  /* 글씨 색을 검정으로 변경 */
+    white-space: pre-line;
+    line-height: 1.2;  /* 줄 간격을 줄임 */
+    word-break: keep-all;
+    word-wrap: break-word;
+    text-align: justify;
+    padding: 15px;
+}
+
+#readingContent p {
+    margin-bottom: 15px;  /* 문단 간 간격 유지 */
+    color:black;
+}
+
+#subcategory_name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -20px;
+	margin-bottom: -10px;
+	font-size: 20px;
+	color:#450b78;
+}
+
+}
+  
+ 
