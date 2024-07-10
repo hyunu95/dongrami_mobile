@@ -42,11 +42,12 @@ public class EditProfileService {
             memberDTO.setNickname(member.getNickname());
             memberDTO.setPhoneNumber(member.getPhoneNumber());
             if (member.getBirthDate() != null) {
-                String[] birthDateParts = member.getBirthDate().toString().split("-");
-                memberDTO.setBirthYear(birthDateParts[0]);
-                memberDTO.setBirthMonth(birthDateParts[1]);
-                memberDTO.setBirthDay(birthDateParts[2]);
+                // Extract year, month, day from birthDate
+                memberDTO.setBirthYear(String.valueOf(member.getBirthDate().getYear() + 1900));
+                memberDTO.setBirthMonth(String.format("%02d", member.getBirthDate().getMonth() + 1));
+                memberDTO.setBirthDay(String.format("%02d", member.getBirthDate().getDate()));
             }
+            memberDTO.setGender(member.getGender());
             return memberDTO;
         }
         return null;
@@ -62,8 +63,16 @@ public class EditProfileService {
             }
             member.setNickname(memberDTO.getNickname());
             member.setPhoneNumber(memberDTO.getPhoneNumber());
-            String birthDateStr = memberDTO.getBirthYear() + "-" + memberDTO.getBirthMonth() + "-" + memberDTO.getBirthDay();
-            member.setBirthDate(Date.valueOf(birthDateStr));
+            
+            // Update birthDate from birthYear, birthMonth, birthDay
+            if (memberDTO.getBirthYear() != null && memberDTO.getBirthMonth() != null && memberDTO.getBirthDay() != null) {
+                int year = Integer.parseInt(memberDTO.getBirthYear());
+                int month = Integer.parseInt(memberDTO.getBirthMonth());
+                int day = Integer.parseInt(memberDTO.getBirthDay());
+                Date birthDate = new Date(year - 1900, month - 1, day);
+                member.setBirthDate(birthDate);
+            }
+            
             memberRepository.save(member);
         }
     }
