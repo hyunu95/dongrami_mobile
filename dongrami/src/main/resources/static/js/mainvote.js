@@ -167,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function fetchReplies(parentReId, commentElem, page = 0, size = 5) {
     fetch(`/api/replies/${parentReId}/reply?page=${page}&size=${size}`)
         .then(response => {
+			 console.log('Response:', response);
             if (!response.ok) {
                 throw new Error('Failed to fetch replies');
             }
@@ -491,7 +492,6 @@ document.getElementById('replyForm').addEventListener('submit', function(event) 
     const content = document.getElementById('content').value;
     const level = document.getElementById('level').value;
     const userIdElem = document.getElementById('userId');  // 사용자 ID 요소 가져오기
-    const userNickname = document.getElementById('userNicknameInput').value;
     const parentReId = document.getElementById('parentReId').value; // 부모 댓글의 ID
 	 const now = new Date();  // 현재 시간
 	const kstOffset = 9 * 60 * 60 * 1000;  // KST는 UTC+9
