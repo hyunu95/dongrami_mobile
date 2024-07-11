@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface SavedResultRepository extends JpaRepository<SavedResult, Integer> {
     // 추가된 메서드
     Optional<SavedResult> findById(Integer resultId);
+
+	void deleteByMemberUserId(String userId);
 }
 
 
