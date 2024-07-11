@@ -1,6 +1,29 @@
+function closeEditReviewModal() {
+    const $editReviewModal = $('#edit-review-modal');
+    $editReviewModal.hide();
+}
+
+function showEditReviewModal() {
+    const $editReviewModal = $('#edit-review-modal');
+    $editReviewModal.show();
+}
+
+function closeDeletionModal() {
+    const $deletionModal = $('#deletion-modal');
+    $deletionModal.hide();
+}
+
+function showDeletionModal() {
+    const $deletionModal = $('#deletion-modal');
+    $deletionModal.show();
+}
+
 $(document).ready(function () {
     const $reviewForm = $('#reviewForm');
     let editingReviewId = null;
+
+    // 현재 로그인된 사용자 닉네임을 hidden input 필드에서 가져오기
+    const currentUserNickname = $('#currentUserNickname').val();
 
     // 리뷰 텍스트 입력 시 글자 수 업데이트
     $('#custom-review-text').on('input', function() {
@@ -45,7 +68,7 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(review),
             success: function () {
-                alert(`리뷰가 성공적으로 ${method === 'PUT' ? '수정' : '저장'}되었습니다.`);
+                showEditReviewModal(); // 리뷰 수정 후 모달 표시
                 loadReviews();
                 closeModal(); // 리뷰 저장 후 모달 닫기
                 editingReviewId = null; // 수정 완료 후 초기화
@@ -59,6 +82,7 @@ $(document).ready(function () {
 
     function loadReviews(mainCategoryId = null) {
         const url = mainCategoryId ? `/review/api/reviews/${mainCategoryId}` : '/review/api/reviews';
+        console.log(`Fetching reviews from URL: ${url}`); // 요청 URL 출력
         $.get(url, function (reviews) {
             if (!Array.isArray(reviews)) {
                 throw new Error('Invalid response format');
@@ -79,7 +103,8 @@ $(document).ready(function () {
                             <span class="review-stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</span>
                         </div>
                         <p class="review-text">${review.reviewText || 'No content'}</p>
-                        <button class="edit-review-btn" data-review-id="${review.reviewId}" data-nickname="${review.member.nickname}" data-bubble-slack-name="${review.subcategory.bubble_slack_name}" data-rating="${review.rating}" data-review-text="${review.reviewText}">수정</button>
+                        ${currentUserNickname && currentUserNickname === review.member.nickname ? `
+                        <button class="edit-review-btn" data-review-id="${review.reviewId}" data-nickname="${review.member.nickname}" data-bubble-slack-name="${review.subcategory.bubble_slack_name}" data-rating="${review.rating}" data-review-text="${review.reviewText}">수정</button>` : ''}
                         <button class="go-to-tarot-btn" onclick="goToTarot(${review.subcategory.subcategoryId})">해당 타로 보러가기>></button>
                     </div>
                 `);
@@ -182,7 +207,7 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(review),
             success: function () {
-                alert('리뷰가 성공적으로 수정되었습니다.');
+                showEditReviewModal(); // 리뷰 수정 후 모달 표시
                 loadReviews();
                 closeModal();
                 editingReviewId = null;
@@ -200,14 +225,21 @@ $(document).ready(function () {
             return;
         }
 
+        // 삭제 확인 모달 열기
+        $('#delete-warning-modal').show();
+        $('body').addClass('modal-open');
+    }
+
+    $('#confirm-delete-button').click(function () {
         const url = `/review/api/reviews/${editingReviewId}`;
         $.ajax({
             url: url,
             method: 'DELETE',
             success: function () {
-                alert('리뷰가 성공적으로 삭제되었습니다.');
                 loadReviews();
+                closeWarningModal();
                 closeModal();
+                showDeletionModal(); // 리뷰 삭제 후 삭제 모달 표시
                 editingReviewId = null;
             },
             error: function (xhr) {
@@ -215,7 +247,11 @@ $(document).ready(function () {
                 alert('리뷰 삭제 중 오류가 발생했습니다.');
             }
         });
-    }
+    });
+
+    $('#cancel-delete-button').click(function () {
+        closeWarningModal();
+    });
 
     $('#custom-update-review').click(function () {
         submitEditReview();
@@ -229,6 +265,11 @@ $(document).ready(function () {
         $('#reviewModal').hide();
         $('body').removeClass('modal-open');
         editingReviewId = null;
+    };
+
+    window.closeWarningModal = function () {
+        $('#delete-warning-modal').hide();
+        $('body').removeClass('modal-open');
     };
 
     $('.review-filter-btn').click(function () {
