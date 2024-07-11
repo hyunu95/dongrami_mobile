@@ -44,7 +44,7 @@ public class WebSecurityConfig {
            http
                .csrf().disable()
                .authorizeHttpRequests(request -> request
-                  .requestMatchers("/review").authenticated()
+            	.requestMatchers("/review").authenticated()
                   .requestMatchers("/api/replies/{voteId}").authenticated()
                    .anyRequest().permitAll()
                )
