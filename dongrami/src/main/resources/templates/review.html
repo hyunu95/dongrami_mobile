@@ -146,10 +146,39 @@
                 <div class="custom-modal-buttons">
                     <button type="button" id="custom-update-review">수정</button>
                     <button type="button" id="custom-delete-review">삭제</button>
+
                 </div>
             </form>
         </div>
     </div>
+    
+		<!-- 리뷰 삭제 완료 모달 -->
+	<div id="deletion-modal" class="deletion-modal">
+	    <div class="deletion-modal-content">
+	        <p>삭제되었습니다.</p>
+	        <button class="modal-ok-button" onclick="closeDeletionModal()">OK</button>
+	    </div>
+	</div>
+	
+		<!-- 리뷰 수정 완료 모달 -->
+	<div id="edit-review-modal" class="edit-review-modal">
+	    <div class="edit-review-modal-content">
+	        <p>리뷰가 성공적으로 수정되었습니다.</p>
+	        <button class="edit-review-ok-button" onclick="closeEditReviewModal()">OK</button>
+	    </div>
+	</div>
+	
+		<!-- 삭제 확인 모달 -->
+	<div id="delete-warning-modal" class="warning-modal">
+	    <div class="warning-modal-content">
+	        <h2 class="warning-modal-title">삭제하시겠습니까?</h2>
+	        <p>삭제 후 다시 복구시킬 수 없습니다.</p>
+	        <div class="warning-modal-buttons">
+	            <button type="button" id="confirm-delete-button">삭제</button>
+	            <button type="button" class="cancel-button" onclick="closeWarningModal()">취소</button>
+	        </div>
+	    </div>
+	</div>
 
     <footer>
         <div class="footer-main">
@@ -181,6 +210,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- 현재 사용자 ID를 전달하기 위한 숨겨진 필드 -->
+	<input type="hidden" id="currentUserNickname" th:value="${session.loggedInUser.nickname}">
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
