@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         
 
-        const userId = document.getElementById('userId').value;
+        const userId = document.getElementById('currentUserId').value;
         const webReadingId = parseInt(document.getElementById('webReadingId').value);
         const readingTitle = document.getElementById('reading1Title').value;
         const subId = parseInt(document.getElementById('subcategoryId').value);
