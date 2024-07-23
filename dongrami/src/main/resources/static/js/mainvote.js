@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 댓글 조회
     function fetchComments(voteId, page = 0, size = 5) {
-        fetch(`/api/replies/${voteId}/replies?page=${page}&size=${size}&sort=replyCreate,desc`)
+        fetch(`/api/replies/${voteId}/replies?page=${page}&size=${size}&sort=replyCreate,desc&level=1`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch comments');
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return response.json();
             })
             .then(data => {
-                const comments = data.content; // Page 객체의 content 속성에 실제 댓글들이 있습니다.
+                const comments = data.content.sort((a, b) => new Date(b.replyCreate) - new Date(a.replyCreate));
                 const commentDiv = document.getElementById('comment-section'); // `commentDiv`가 정의된 곳에 맞게 수정
                 commentDiv.innerHTML = '';
                 comments.forEach(comment => {
@@ -167,6 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function fetchReplies(parentReId, commentElem, page = 0, size = 5) {
     fetch(`/api/replies/${parentReId}/reply?page=${page}&size=${size}`)
         .then(response => {
+			 console.log('Response:', response);
             if (!response.ok) {
                 throw new Error('Failed to fetch replies');
             }
@@ -491,15 +492,14 @@ document.getElementById('replyForm').addEventListener('submit', function(event) 
     const content = document.getElementById('content').value;
     const level = document.getElementById('level').value;
     const userIdElem = document.getElementById('userId');  // 사용자 ID 요소 가져오기
-    const userNickname = document.getElementById('userNicknameInput').value;
     const parentReId = document.getElementById('parentReId').value; // 부모 댓글의 ID
 	 const now = new Date();  // 현재 시간
 	const kstOffset = 9 * 60 * 60 * 1000;  // KST는 UTC+9
     const kstDate = new Date(now.getTime() + kstOffset);  // KST 시간 계산
     // userId 요소가 존재하지 않거나 value가 null인 경우 경고 메시지 표시 후 함수 종료
-    if (!userIdElem || !userIdElem.value) {
-        alert('로그인 후 이용해 주세요');
-        return;  // 함수 종료
+	 if (!userIdElem || !userIdElem.value) {
+      $('#loginModal').modal('show'); // 모달을 표시합니다.
+      return;  // 함수 종료
     }
 
     const userId = userIdElem.value;

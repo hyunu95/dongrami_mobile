@@ -41,6 +41,7 @@ public class ResultServiceImpl {
 	    dto.setSubcategory(subcategoryId != null ? subcategoryRepository.findById(subcategoryId).orElse(null) : null);
 	    dto.setCard(cardId != null ? cardRepository.findById(cardId).orElse(null) : null);
 	    dto.setImageUrl1(result[5] != null ? (String) result[5] : null);
+	    dto.setReading1Title(result[6] != null ? result[6].toString() : null);
 	    
 	    System.out.println("mapped dto : " + dto);
 	    return dto;

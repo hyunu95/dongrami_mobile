@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lec.Impl.ResultServiceImpl;
 import com.lec.dto.WebReadingDTO;
+import com.lec.entity.Member;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class ResultController {
@@ -23,7 +26,14 @@ public class ResultController {
     }
 
     @PostMapping("/result")
-    public String processResult(@RequestParam("subcategoryId") int subcategoryId, Model model) {
+    public String processResult(@RequestParam("subcategoryId") int subcategoryId, HttpSession session, Model model) {
+    	
+    	Member loggedInUser = (Member) session.getAttribute("loggedInUser");
+	    if (loggedInUser != null) {
+	        model.addAttribute("userId", loggedInUser.getUserId());
+	    }
+	    
+	    
         try {
             List<WebReadingDTO> webReadings = resultService.getOneCardReadings(subcategoryId);
             if (!webReadings.isEmpty()) {

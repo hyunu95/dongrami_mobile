@@ -125,11 +125,17 @@
 		       </div>
 
 		       <!-- Hidden fields -->
+			   <input type="hidden" id="currentUserNickname" th:value="${session.loggedInUser.nickname}">
+			   <input type="hidden" id="currentUserId" th:value="${session.loggedInUser.userId}"> <!-- userId 값 추가 -->
 		       <input type="hidden" id="webReadingId" th:value="${webReading.webReadingId}">
 		       <input type="hidden" id="reading1Title" th:value="${webReading.reading1Title}">
 		       <input type="hidden" id="subcategoryId" th:value="${webReading != null and webReading.subcategory != null ? webReading.subcategory.subcategory_id : ''}">
 		       <input type="hidden" id="cardId" th:value="${webReading != null and webReading.card != null ? webReading.card.cardId : ''}">
 		   </main>
+
+	   
+	
+	   
     <footer>
         <!-- Footer Start-->
         <div class="footer-main">
@@ -165,6 +171,90 @@
             <!-- Footer End-->
         </div>
     </footer>
+	
+	<!-- 리뷰 모달 HTML 추가 -->
+	<div id="reviewModal" class="custom-modal" style="display:none;">
+	    <div class="custom-modal-content">
+	        <span class="custom-close" onclick="closeModal()">&times;</span>
+	        <h2 class="custom-modal-title">리뷰 작성하기</h2>
+	        <p>동그라미가 들려준 이야기를 수정하여 더 나은 경험을 공유하세요!</p>
+	        <div class="custom-review-details">
+	            <div class="custom-review-user">
+	                <img src="images/basic.png" alt="Default Image" class="custom-modal-image">
+	                <div class="custom-user-info">
+	                    <span class="custom-user-name">닉네임</span>
+	                    <span class="custom-user-role">#소주제</span>
+	                </div>
+	            </div>
+	            <div class="custom-review-rating">
+	                <label for="custom-modal-rating">평점 <span class="custom-modal-rating-score">3점</span></label>
+	                <div id="custom-modal-rating">
+	                    <span class="custom-modal-star">★</span>
+	                    <span class="custom-modal-star">★</span>
+	                    <span class="custom-modal-star">★</span>
+	                    <span class="custom-modal-star">☆</span>
+	                    <span class="custom-modal-star">☆</span>
+	                </div>
+	            </div>
+	        </div>
+	        <form id="reviewForm" method="post">
+	            <textarea id="custom-review-text" name="reviewText" placeholder="50자 미만 작성해주세요"></textarea>
+	            <div id="custom-character-count">0/50</div>
+	            <input type="hidden" id="ratingScore" name="ratingScore" value="3">
+	            <div class="custom-modal-buttons">
+	                <button type="button" id="custom-submit-review">리뷰 등록</button>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+
+			<!-- 리뷰 등록 완료 모달 -->
+		<div id="review-registration-modal" class="review-registration-modal">
+		    <div class="review-registration-modal-content">
+		        <p>리뷰가 등록되었습니다.</p>
+		        <button class="review-registration-ok-button">OK</button>
+		    </div>
+		</div>
+		
+		<!-- 성공 모달 -->
+			    <div class="modal fade" id="saveSuccessModal" tabindex="-1" role="dialog" aria-labelledby="saveSuccessModalLabel" aria-hidden="true">
+			      <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			          <div class="modal-header">
+			            <h5 class="modal-title" id="saveSuccessModalLabel">저장 성공</h5>
+			            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			              <span aria-hidden="true">&times;</span>
+			            </button>
+			          </div>
+			          <div class="modal-body">
+			            저장에 성공했습니다.
+			          </div>
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+
+			    <!-- 실패 모달 -->
+			    <div class="modal fade" id="saveErrorModal" tabindex="-1" role="dialog" aria-labelledby="saveErrorModalLabel" aria-hidden="true">
+			      <div class="modal-dialog" role="document">
+			        <div class="modal-content">
+			          <div class="modal-header">
+			            <h5 class="modal-title" id="saveErrorModalLabel">저장 실패</h5>
+			            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			              <span aria-hidden="true">&times;</span>
+			            </button>
+			          </div>
+			          <div class="modal-body">
+			            <!-- 에러 메시지가 여기에 동적으로 삽입됩니다 -->
+			          </div>
+			          <div class="modal-footer">
+			            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
    
 	<!-- JS here -->
 	<!-- All JS Custom Plugins Link Here here -->
@@ -203,7 +293,8 @@
 	        <script th:src="@{/js/plugins.js}"></script>
 	        <script th:src="@{/js/main.js}"></script>
 			<script th:src="@{/js/readingSplit.js}"></script>
-
+			<script th:src="@{/js/saved.js}"></script>
+			<script th:src="@{/js/result.js}"></script>
     <!-- result js-->
     
     </body>

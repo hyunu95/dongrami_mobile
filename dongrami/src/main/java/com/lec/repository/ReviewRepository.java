@@ -14,4 +14,6 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
 
     @Query("SELECT r FROM review r JOIN FETCH r.member m JOIN FETCH r.subcategory s WHERE s.maincategory.maincategory_id = :mainCategoryId")
     List<Review> findByMainCategory(@Param("mainCategoryId") int mainCategoryId);
+
+    void deleteByMemberUserId(String userId);
 }
